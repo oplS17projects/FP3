@@ -1,3 +1,5 @@
+http://docs.racket-lang.org/images/Icons.html#%28part._.What_is_an_icon_%29
+
 # FP3: Final Project Assignment 3: Exploration 2
 Due Sunday, March 26, 2017
 
