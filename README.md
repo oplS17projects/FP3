@@ -54,11 +54,11 @@ Below is a snippet of a small sample of the code:<br>
    the output result of the code looks like:<br>
    <br>
    <br>
-  <img src="https://gyazo.com/e3f9ba667e62496f9ce3895f38905fa3" width="15%"></img>##
+  <img src="https://gyazo.com/e3f9ba667e62496f9ce3895f38905fa3.png" width="15%"></img>##
    <br>
    A Diagram for the library can be found below:
    <br>
-  ## <img src="https://i.gyazo.com/e7690ad4a8263a641cb612a87e68b281.png" width="15%"></img>##
+  <img src="https://gyazo.com/1311ae8d1be10d6382dda08ffac9807b.png" width="15%"></img>
    <br>
    <br>
    <br>
