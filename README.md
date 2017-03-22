@@ -1,51 +1,69 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+# FP3: Final Project Assignment 3: Exploration 2<br>
+Due Sunday, March 26, 2017<br>
+<br>
+<br>
+## Icons<br>
+My name: Derek Ross<br>
+My Email: Derek_Ross@student.uml.edu <br>
+My Github: https://github.com/DerekR0123 <br>
+Where to Find Code: This repository (FP3) located in the above github. <br>
+<br>
+Why I chose Icons:
+I chose Icons because I feel like it is a great library that can work well with other libraries or on its own to create some awesome idea's. I have a few idea's that I planned on pitching to my partner and professor and they all can benefit from icons:<br>
+<br>
+Idea 1: The first idea was to make a website using the html library in racket and then continue it with custom icons that turn this webpage into a portfolio for my work at uml. Each Icon could take you to a seperate portfolio understudy, example of my work, github,
+or even another website me or my partner has created! All wrapped in a lovely program that we also created!<br>
+<br>
+Idea 2: The second idea was to make a DJ system using a seperate music library that allows the buttons to extend to mp3 files! I could create a few icons that can play different songs and make a small version of a DJ booth! Im not sure to the extent of altering the music but I could definitly have it cycle through a play list and possibly a cool UI!<br>
+<br>
+Idea 3: I honestly was to make an ATM. I was very interested in the whole bank system thing we were working on in class. I wanted to extend it and make a real big proper bank system with its own UI and buttons to do each task. I think it would be very cool to have a full ATM machine UI and actions to go with it!. <br>
+<br>
+<br>
+Okay enough explaining why I chose Icons!!! Now for What I did:<br>
+<br>
+I first researched a few things about the icons and what you can do with them. The icons are basically a representation of a picture
+that can be altered and rendered with all sorts of elements. They can have their color, material, size, dimensions, and rendering all altered by commands included in the library! There also are sub libraries that contain different icons you can work with as templates.I took a few of there basic code examples and broke down each peice and explained what It did to show my understanding of the library. I then took some further examples and altered then to show my understanding of the control and manipulation you possess on the items it contains. Lastly I went and found some real world examples to give a better example of why it could be a useful thing to have. <br>
+<br>
+Something I learned from this was that the icons used to run and stop racket's compiler come from this library too!<br>
+<br>
+Below is a snippet of a small sample of the code:<br>
+<br>
+```
+;;Allows us to access the different keywords / items in the library such as bitmap
+> (require pict images/icons/control images/icons/style)
+;;The type of picture we are going to make is a bitmap
+> (pict->bitmap
+   ;;We are putting a picture object inside of another picture object
+   (cc-superimpose
+    ;;This code controls the circle on the outside of the arrow for the first icon!
+    (bitmap (record-icon #:color "blue" #:height 100
+                         ;;As you can see you can control the color, height (size) , and material of the icon
+                         #:material glass-icon-material))
+    ;;This next set of code is for the arrow contained inside of the previous icon object.
+    (bitmap (step-icon #:color light-metal-icon-color #:height 48
+                       #:material metal-icon-material))))
+                       
+```
+<br>
+<br>
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+****************************** END OF CODE SAMPLE **************************************<br>
+<br>
+<br>
+   That is just a small snippit of the code with some comments. You can find the full source in this repository. Here is what
+   the output result of the code looks like:<br>
+   <br>
+   <br>
+  <img src="https://gyazo.com/e3f9ba667e62496f9ce3895f38905fa3.png" width="15%"></img>
+   <br>
+   <br>
+   <br>
+   A Diagram for the library can be found below:
+   <br>
+   <br>
+  <img src="https://gyazo.com/1311ae8d1be10d6382dda08ffac9807b.png" width="15%"></img>
+   <br>
+   <br>
+   <br>
+   ##End Of Document##
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
