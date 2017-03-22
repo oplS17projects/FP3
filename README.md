@@ -42,15 +42,19 @@ Below is a snippet of a small sample of the code:<br>
     ;;This next set of code is for the arrow contained inside of the previous icon object.
     (bitmap (step-icon #:color light-metal-icon-color #:height 48
                        #:material metal-icon-material))))
-                       ```
-   <br><br>                    
+                       
+```
+<br>
+<br>
+
 ****************************** END OF CODE SAMPLE **************************************<br>
+<br>
 <br>
    That is just a small snippit of the code with some comments. You can find the full source in this repository. Here is what
    the output result of the code looks like:<br>
    <br>
    <br>
-  ## <img src="https://i.gyazo.com/8f56ab0a7e5a278d962c30eff093ef5f.png" width="15%"></img>##
+  <img src="https://gyazo.com/e3f9ba667e62496f9ce3895f38905fa3" width="15%"></img>##
    <br>
    A Diagram for the library can be found below:
    <br>
