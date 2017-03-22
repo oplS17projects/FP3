@@ -5,7 +5,7 @@ Due Sunday, March 26, 2017<br>
 ## Icons<br>
 My name: Derek Ross<br>
 <br>
-I chose Icons because I feel like it is a great library that can work well with other libraries or on its own to create some awesome<br> idea's. I have a few idea's that I planned on pitching to my partner and professor and they all can benefit from icons:<br>
+I chose Icons because I feel like it is a great library that can work well with other libraries or on its own to create some awesome< idea's. I have a few idea's that I planned on pitching to my partner and professor and they all can benefit from icons:
 <br>
 Idea 1: The first idea was to make a website using the html library in racket and then continue it with custom icons that turn this<br> webpage into a portfolio for my work at uml. Each Icon could take you to a seperate portfolio understudy, example of my work, github,<br>
 or even another website me or my partner has created! All wrapped in a lovely program that we also created!<br>
