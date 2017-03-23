@@ -14,7 +14,24 @@ The portnumber, hyperlink suffix can be tailored as needed.  There is as well an
 * output from your code demonstrating what it produced
 * at least one diagram or figure showing your work
 ```racket
+(define test_list '("Lowell, MA", "Dayton, OH", "Porlant, OR", "Camden, ME"))
+(define test_list2 '(5, 3, 1))
+(define second (car test_list2))
+(define first( car test_list))
+(define (start req); start is a function that takes a request 
+  (response/xexpr
+   `(html (head (title "Magic Mirror")); this is the title of the webpage
+          (body
+           (center(h1 "This is supposed to be a mirror.")); this prints out a header 
+           (center "Weather in Lowell"); this prints out a new paragraph of text 
+          (center(img ([src "test.jpg"]))) ; this prints out an image 
+          (br) 
+          (center(h3, first) ; prints out from a list
 
+          (br)
+          (center(h4, (number->string second)))
+          (center '(a ((href "https://www.google.com/search?q=lowell+weather&ie=utf-8&oe=utf-8")) "Lowell Weather")); puts in ; a hyperlink titled Lowell Weather, the a stands for an anchor 
+           )))))
 ```
 The narrative itself should be no longer than 350 words. 
 
