@@ -4,6 +4,9 @@ My name: Steve Kim
 Library: web-server/servlet
 http://docs.racket-lang.org/web-server/run.html
 * a narrative of what you did
+I explored the web-server library specifically the servelet part.  
+I can declare a Webpage title, deacler a heading, write paragraphs and add a hyperlink. 
+
 * highlights of code that you wrote, with explanation
 * output from your code demonstrating what it produced
 * at least one diagram or figure showing your work
