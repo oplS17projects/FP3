@@ -20,7 +20,7 @@ The narrative itself should be no longer than 350 words.
 
 You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
+![test image]("ScreenShot.png")
 
 
 
