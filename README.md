@@ -29,8 +29,9 @@ The portnumber(9000 in the screenshot), hyperlink suffix can be tailored as need
           (center(h3, first) ; prints out from a list
 
           (br)
-          (center(h4, (number->string second)))
-          (center '(a ((href "https://www.google.com/search?q=lowell+weather&ie=utf-8&oe=utf-8")) "Lowell Weather")); puts in ; a hyperlink titled Lowell Weather, the a stands for an anchor 
+          (center(h4, (number->string second))); prints out second number that gets converted to a string so it can be displayed
+          (center '(a ((href "https://www.google.com/search?q=lowell+weather&ie=utf-8&oe=utf-8")) "Lowell Weather")); puts in a hyperlink titled Lowell Weather,
+          ; the a stands for an anchor 
            )))))
 ```
 The narrative itself should be no longer than 350 words. 
