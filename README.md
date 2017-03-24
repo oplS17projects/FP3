@@ -1,51 +1,32 @@
 # FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## Library Name
+My name: Steve Kim 
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+Library: web-server/servlet,  web-server/servlet-env
+    
+http://docs.racket-lang.org/web-server/run.html
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+I looked at two libraries the web-server and the web-server-env. The first servlet library was used to make an response function  while the servlet-env was used to  This will be used to display our magic mirror.  As an experiment for this exploration I made a [local] webpage. The webpage is fairly basic composed a title, a header, text, a picture and a hyperlink.  
+Both the port number and hyperlink suffix can be tailored as needed. There is as well an option for an external conneciton to the website could be made. I was able to as well center the main components of the webpage and will have to conintue to look at other ways to format (spatially position) text, hyperlinks and images.  Once you hit "Run" in Dr. Racket the webpage would open in the default browswer (Mozilla for me).  All of the output is demonstrated in the screenshot that is at the bottom.  
+One of the things that I learned is that html (via Racket) will only output strings.  Luckily there is a funciton that converts numbers to strings. 
+```racket
+(define test_list '("Lowell, MA", "Dayton, OH", "Portland, OR", "Camden, ME")); random places in America 
+(define test_list2 '(5, 3, 1)) ; test outputting numbers 
+(define second (car test_list2)) ; should get the number 5
+(define first( car test_list)) ; should get Lowell, MA 
+(define (start req); start is a function that takes a request 
+  (response/xexpr
+   `(html (head (title "Magic Mirror")); this is the title of the webpage tab 
+          (body
+           (center(h1 "This is supposed to be a mirror.")); this prints out a header 
+           (center "Weather in Lowell"); this prints out a new paragraph of text 
+          (center(img ([src "test.jpg"]))) ; this prints out an image 
+          (br) 
+          (center(h3, first) ; prints out from a list
+          (br)
+          (center(h4, (number->string second))); prints out number that gets converted to a string so it can be displayed
+          (center '(a ((href "https://www.google.com/search?q=lowell+weather&ie=utf-8&oe=utf-8")) "Lowell Weather")); puts in a hyperlink titled Lowell Weather,
+          ; the a stands for an anchor 
+           )))))
+```
+![Webpage](Final.png)
