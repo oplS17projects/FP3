@@ -16,8 +16,8 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## RackUnit
+My name: Jake Adamson
 
 Write what you did!
 Remember that this report must include:
