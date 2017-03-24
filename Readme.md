@@ -3,8 +3,8 @@ My name: **Steve Warren**
 
 The following three libraries are used to download and parse weather data from [OpenWeatherMap](http://openweathermap.org/). These libraries and the included code will be used in support of Final Project.
 
-**net/url:** allows for the aquisition of weather data. 
-**2htdp/batch-io:** allows for filesystem access. 
+**net/url:** allows for the aquisition of weather data.  
+**2htdp/batch-io:** allows for filesystem access.  
 **json:** allows for parsing of the data set.
 
 The following code acquires the JSON and stores it locally:
@@ -95,5 +95,5 @@ The following code parses the JSON and returns it:
   )
 ```
 
-This is an example of the output that will be sent:
+This is an example of the output that will be sent:  
 ![parser example screenshot](parser.png "parser example screenshot")
