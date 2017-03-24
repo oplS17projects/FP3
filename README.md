@@ -35,7 +35,8 @@ This data set for our project (http://archive.ics.uci.edu/ml/datasets/Iris).
 (send table set (list-ref DisplayData 0) (list-ref DisplayData 1) (list-ref DisplayData 2) (list-ref DisplayData 4) (list-ref DisplayData 3));--> Works but needs to be aple to handle variable lengtho of data
 
 ;; display the GUI
-(send frame show #t)```
+(send frame show #t)
+```
 
 * output 
 
