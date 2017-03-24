@@ -1,51 +1,44 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## GUI
+**Robert Farinelli**
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+I used the GUI Library. Though the GUI library was not recommended to explore, I used it because I went into the library with a goal in mind. For the FP1 I used the database library. 
+I wanted to expand upon this and look for ways to visualize the data, as me and my partner are most likely going to have a visualization command for our scripting language for our project.
+So I decided to build off my previous FB1 and a table view of the database as you would see in a database IDE. I did this using the iris data set from UCI repository as we are going to be using
+This data set for our project (http://archive.ics.uci.edu/ml/datasets/Iris).
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
 
-The report template is below, beginning with "Library Name Here."
 
-## How to Prepare and Submit This Assignment
+```;;create a new window frame to display the data
+(define frame (new frame% 
+                  [label "Iris_data_set"]
+                  [width 800]
+                  [height 600]
+                  ))
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+;;Create the table in 
+(define table (new list-box%
+                 [parent frame]
+                 ;;set where the dat comes from
+                 [choices (list )]
+                 [label "Test_data"]
+                 ;;set sup the table sytle
+                 [style (list 'single 'column-headers 'variable-columns)]
+                 ;;label the rows
+                 [columns (list "Class" "Sepal_length" "Sepal_width" "Petal_length" "Petal_Width")]))
 
-## Library Name Here
-My name: **put your real name here**
+(define data (list (list "1" "2" "3")
+                   (list "4" "5" "6")
+                   (list "6" "8" "9")))
 
-Write what you did!
-Remember that this report must include:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+;;fill the Table with values 
+(send table set (list-ref DisplayData 0) (list-ref DisplayData 1) (list-ref DisplayData 2) (list-ref DisplayData 4) (list-ref DisplayData 3));--> Works but needs to be aple to handle variable lengtho of data
 
-The narrative itself should be no longer than 350 words. 
+;; display the GUI
+(send frame show #t)```
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+* output 
 
 ![test image](/testimage.png?raw=true "test image")
 
-You must provide credit to the source for any borrowed images.
 
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
