@@ -1,3 +1,5 @@
+# ATTENTION!!! CONTENT MAY CAUSE DIZZINESS
+
 ## My Library: pict3d 
 ## Document is at http://docs.racket-lang.org/pict3d/index.html (or http://www.ccs.neu.edu/home/types/racket-doc/pict3d/index.html)
 
@@ -28,7 +30,7 @@ I wanted to practice making a 3D world for my final project and I am very impres
                    (* 0.25 (+ (random) 0.1)))))
        (light (get-random-position) (emitted (get-random-color) (+ 0.25 (* (random) 0.25)))))))))
 	```
-- After, I created the SUN to stand at the middle of the universe (I thought it would be coller if I make the sun moves as well, so I moved its initial position from origin (0,0,0) to position (1,1,1)).
+- After, I created the SUN to stand at the middle of the universe (I thought it would be cooler if I make the sun moves as well, so I moved its initial position from origin (0,0,0) to position (1,1,1)).
 
 	```
 	(define sun (set-emitted
