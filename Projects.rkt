@@ -106,3 +106,7 @@
 ;;(scale 30 (color-list->bitmap (car pixlist) 4 1))
 ;;(scale 30 (color-list->bitmap (cadr pixlist) 3 1))
 (color-list->bitmap FinalGrayList img-width img-height)
+
+
+(define save-photo
+  (save-image (color-list->bitmap FinalGrayList img-width img-height)))
