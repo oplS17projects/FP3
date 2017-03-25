@@ -1,14 +1,14 @@
 ## My Library: pict3d 
-## Document is at http://docs.racket-lang.org/pict3d/index.html
-## or http://www.ccs.neu.edu/home/types/racket-doc/pict3d/index.html
+## Document is at http://docs.racket-lang.org/pict3d/index.html (or http://www.ccs.neu.edu/home/types/racket-doc/pict3d/index.html)
 
 My name: Hung Q. Nguyen
 
 Write what you did!
 
-Initial thought: I wanted to practice making a 3D world for my final project and I am very impressed by watching Neil Toronto's work at fourth RacketCon (Full video and live: https://www.youtube.com/watch?v=t3xdv4UP9-U), so I decided to make a 3D moving-universe.
+#### Initial thought: 
+I wanted to practice making a 3D world for my final project and I am very impressed by watching Neil Toronto's work at fourth RacketCon (Full video and live: https://www.youtube.com/watch?v=t3xdv4UP9-U), so I decided to make a 3D moving-universe.
 
-What I did:
+#### What I did:
 - Making a list of 500 spheres at a random position and color which do not have the lightening affect.
 
 	```
