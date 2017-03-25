@@ -46,4 +46,4 @@ All this UI does is take input from the user and spit out a recipe with a link(r
 (define field-3 (new my-text-field% [label "Food Item 3"] [parent frame]))
 (define field-4 (new my-text-field% [label "Food Item 4"] [parent frame]))
 ```
-![test image](/testimage.png?raw=true "test image")
+![interface](/interface.png?raw=true "interface")
