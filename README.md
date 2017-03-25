@@ -5,4 +5,4 @@ My name: Robert Cucchiara
 
 
 
-![test image](/testimage.png?raw=true "test image")
+![fp3_output image](/fp3_output.png?raw=true "output image")
