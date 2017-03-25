@@ -1,14 +1,3 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
-
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
-
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
 1. To start, [**fork** this repository][forking]. 
 1. Add your `.rkt` Racket source file(s) to the repository. 
 1. Add any images to the repository.
@@ -16,10 +5,23 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## Library Name: Rsound
+My name: Michael Danino
 
-Write what you did!
+This assignment didn't seem very helpful for my project personally, since all that was really needed for the game Molly and I will work on is in 2htdp/image and universe. Since something was required, I decided to add sound.
+
+to add the library, I ran
+```
+Racket>raco.exe pkg install -u --auto rsound
+```
+For now, all the sound is, was to read in a .wav file and store it in an object
+```racket
+(define arrowSound (rs-read "arrow.wav"));read in the arrow sound to be played upon shooting
+```
+next, I needed to add when I wanted the sound to play. I had it play when an arrow would be shot, in this case when the space bar is pressed. Since I already have a function for this, it will be in the "start-shooting" function of the hook object/class.
+```racket
+[(equal? comm 'start-shooting) (if (equal? shooting 'no) (begin (play arrowSound) (set! shooting 'yes)) "shooting")] ; need to debug this, if statement doesn't seem to read properly
+```
 Remember that this report must include:
 
 * a narrative of what you did
@@ -31,21 +33,12 @@ The narrative itself should be no longer than 350 words.
 
 You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
+![on-load](https://github.com/mdanino94/FP3/blob/master/on-load.png)
 
-You must provide credit to the source for any borrowed images.
+![moving around](https://github.com/mdanino94/FP3/blob/master/moving%20around.png)
 
-Code should be delivered in two ways:
+![mid-shoot](https://github.com/mdanino94/FP3/blob/master/mid-shoot.png)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+image: http://www.planwallpaper.com/static/images/cool-background.jpg
 
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+arrow sound: https://www.freesound.org/people/braqoon/sounds/161098/
