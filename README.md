@@ -1,51 +1,67 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+# ATTENTION!!! CONTENT MAY CAUSE DIZZINESS
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## My Library: pict3d 
+## Document is at http://docs.racket-lang.org/pict3d/index.html (or http://www.ccs.neu.edu/home/types/racket-doc/pict3d/index.html)
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
+My name: Hung Q. Nguyen
 
 Write what you did!
-Remember that this report must include:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+#### Initial thought: 
+I wanted to practice making a 3D world for my final project and I am very impressed by watching Neil Toronto's work at fourth RacketCon (Full video and live: https://www.youtube.com/watch?v=t3xdv4UP9-U), so I decided to make a 3D moving-universe.
 
-The narrative itself should be no longer than 350 words. 
+#### What I did:
+- Making a list of 500 spheres at a random position and color which do not have the lightening affect.
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+	```
+	(for/list ([i 500])
+      (with-color (rgba (get-random-color))
+        (sphere (get-random-position)
+                (* 0.25 (+ (random) 0.1)))))
+	```
 
-![test image](/testimage.png?raw=true "test image")
+- Then, I make another list of 500 spheres which have same attributes but they do have the lightening affect
+	```
+	(for/list ([i 500])
+      (combine
+       (with-color (rgba "black")
+         (with-emitted (emitted (get-random-color) (* (+ 0.25 (* (random) 0.25)) 32))
+           (sphere (get-random-position)
+                   (* 0.25 (+ (random) 0.1)))))
+       (light (get-random-position) (emitted (get-random-color) (+ 0.25 (* (random) 0.25)))))))))
+	```
+- After, I created the SUN to stand at the middle of the universe (I thought it would be cooler if I make the sun moves as well, so I moved its initial position from origin (0,0,0) to position (1,1,1)).
 
-You must provide credit to the source for any borrowed images.
+	```
+	(define sun (set-emitted
+             (parameterize ([current-color  (rgba "chocolate")])
+               (sphere (pos 1 1 1) 1/5))
+             (emitted "lightyellow" 10)))
+    ```
 
-Code should be delivered in two ways:
+- I used the simple given examples for camera rotating when frame is on-draw (in the provided link -- #10)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+	```
+	((define lights+camera
+	  (combine (light (pos 0 1 2) (emitted "Thistle"))
+	           (light (pos 0 -2 -2) (emitted "PowderBlue"))
+	           (basis 'camera (point-at (pos 1 1 0) origin))))
+	```
+- Finally, wrap everything up and display all the spheres into the frame 1000x800
+	```
+	(define (on-draw s n t)
+	  (combine (rotate-z (rotate-y (rotate-x (combine sun stars)
+	                                         (/ t 40))
+	                               (/ t 35))
+	                     (/ t 38))
+	           lights+camera))
 
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+	(big-bang3d 0 #:on-draw on-draw
+            #:name "Cosmos Travelling"	 	 	 	 
+            #:width 1000	 	 	 	 
+            #:height 800)
+	```
+
+###### RESULT SCREENSHOT
+![alt tag](https://github.com/hnguyenworkstation/FP3/blob/master/screenshot.png)
+
