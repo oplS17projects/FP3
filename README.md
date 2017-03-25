@@ -1,44 +1,46 @@
 # FP3: Final Project Assignment 3: Exploration 2
 Due Sunday, March 26, 2017
+Team : Image Converter
+Team Member: Duy Truong & Chuong vu
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
+(require racket/string)
+My name: Duy Truong
 
 Write what you did!
 Remember that this report must include:
+My team split the work into 2 parts:
+ + Read and Calculate pixel
+ + Store the data before and after calculate
+I used the string library to store the pixel value before and after calculate.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+Code & Explaination:
 
-The narrative itself should be no longer than 350 words. 
+```Racket
+#lang racket
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+(define (get-pixel x y)
+  (local
+    [(define str (any->string (get-pixel-color y x imgtest)))
+     (define str1 (string-split (substring str 15 (- (string-length str) 1))))]
+    (list (string->number (list-ref str1 0)) (string->number (list-ref str1 1)) (string->number (list-ref str1 2)))))
 
-![test image](/testimage.png?raw=true "test image")
+```
 
-You must provide credit to the source for any borrowed images.
+I used string-split to split the the string after we read from image. Because the data we get from (get-pixel-color y x imgtest) is read data. we do not allow to edit the data. So we store it in to the new list with struct '( red green blue).
+```
+(define (RGBList-iter width height)
+  (for/list ([x (in-range 0 height)])
+    (for/list ([y (in-range 0 width)])
+            (get-pixel x y))))    
+(define RGBList
+  (RGBList-iter img-width img-height))
+```
+we used the for/list to read thought the image and store the data as list.
+when we read the hold picture, we have list inside list. So to draw picture i use Append* to merge list inside list to one list.
 
-Code should be delivered in two ways:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+![test image](/output.png?raw=true "output image")
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
