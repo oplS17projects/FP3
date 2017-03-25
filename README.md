@@ -40,7 +40,7 @@ we used the for/list to read thought the image and store the data as list.
 when we read the hold picture, we have list inside list. So to draw picture i use Append* to merge list inside list to one list.
 
 
-![test image](/output.png?raw=true "output image")
+![test image](/Output test.png?raw=true "output image")
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
