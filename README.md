@@ -1,7 +1,7 @@
 # FP3: Final Project Assignment 3: Exploration 2
 Due Sunday, March 26, 2017
 
-## My Library: gui;images
+## My Library: gui; images
 My name: Ruowei Zhang
 
 For our team project, firstable we need to create GUI for players. I chose to use gui and images libraries to complete it.
@@ -10,11 +10,11 @@ Here are the outputs:
 
 ![board](/board.png?raw=true "board image")
 
-If the user click the "Start!" button, the GUI would become:
+If the user clicks the "Start!" button, the GUI would become:
 
 ![start](start.png?raw=true "start image")
 
-If the user click the "Stop!" button, the GUI would become:
+If the user clicks the "Stop!" button, the GUI would become:
 
 ![stop](stop.png?raw=true "stop image")
 
@@ -75,6 +75,8 @@ The library images/icons contains many function of creating the icon.
 I use images/icons/symbol to make start and stop icons.
 
 References:http://docs.racket-lang.org/images/Icons.html#%28part._.About_.These_.Icons%29
+
+![chess](chess.png?raw=true "chess image")
 
 I also use pict images/icons/control images/icons/style to make 3D black and white chess.
 
