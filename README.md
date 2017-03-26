@@ -1,44 +1,53 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## RackUnit
+My name: Jake Adamson
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+When I was think about what I could make using racket unit test that was interesting. I realized that you could use closure to keep the the data shielded from any outside side affects. In this example I use a let to make the list to only live where the tests are being done.
+Another interesting thing is that you can embedded checks in to functions I use this to look inside list to see if the list consists of positive even numbers.
+```racket
+;; this will short circut if one test fails the test will end
+(test-case
+ "Test Example w/ closure"
+ (let ([foo (filter even? (range 1 100))])
+   (for-each ;; checks that each element of a list is only pos even and greater then zero
+    (lambda (elt)
+      (and (check-pred even? elt) (check-pred positive? elt)))
+    foo)
+   (check = (length foo) 49)
+   (check-equal? (car foo) 2) ; foo '(2 4 6 8 ... 94 96 98)
+   (check = (last foo) 98)))
+```
+Also another interesting feature of racket unit test is that they short circuit. As you can see from the output that it does not evaluate any cases passed (check = 0 10);
+```racket
+(test-case
+ "Short circuit"
+ (check = 3 3)
+ (check = 0 10)
+ (check = 4 4) ;; does not check
+ (check = 200 45));; does not check this when test run this wont fail b/c it short circiut
+```
+Output:
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+![alt text][output]
 
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+How this lib will help with our project is that it will be used to check that the object and all its helper helper function are working properly. Here a test that will test our project I wrote it before I started writing the objects function all I have done is come up with the functions I think it will use. I wrote the test first because I read that you are supposed to do that in order not to try and make your test work. Kinda like control groups for testing medicine I guess.
+```racket
+(test-begin
+ "Test string gagggagaggcgagaaa"
+ (let ([mm (markModel "test.txt" 1)])
+   (check = (order mm) 1)
+   (check-not-equal? (order mm) 5)
+   (check-equal? (kgram mm) "gagggagaggcgagaaa")
+   (check-not-equal? (kgram mm) "jakejakejakejake")
+   (check = (freqOfStr mm "j") 0) ;; number of j should be 0
+   (check = (freqOfStr mm "g") 9) ;; there are 9 g
+   (check = (freqOfStr mm "a") 7)
+   (check = (freqOfStr mm "c") 1)
+   (check =  (freqOfChar mm "g" "a") 5)
+   (check =  (freqOfChar mm "g" "c") 1)
+   (check =  (freqOfChar mm "c" "g") 1)
+   (check =  (freqOfChar mm "g" "g") 3)
+   (check =  (freqOfChar mm "a" "a") 2)))
+   ```
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
@@ -49,3 +58,4 @@ Code should be delivered in two ways:
 [ref-commit]: http://gitref.org/basic/#commit
 [ref-push]: http://gitref.org/remotes/#push
 [pull-request]: https://help.github.com/articles/creating-a-pull-request
+[output]: https://github.com/Jake-The-Human/FP3/blob/master/Screenshot%20from%202017-03-26%2011-44-54.png 
