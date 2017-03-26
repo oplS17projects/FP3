@@ -1,44 +1,75 @@
 # FP3: Final Project Assignment 3: Exploration 2
 Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## My Library: gui;images
+My name: Ruowei Zhang
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+For our team project, firstable we need to create GUI for players. I chose to use gui and images libraries to complete it.
 
-The report template is below, beginning with "Library Name Here."
+Here are the outputs:
+![board](/board.png?raw=true "board image")
 
-## How to Prepare and Submit This Assignment
+If the user click the "Start!" button, the GUI would become:
+![start](start.png?raw=true "start image")
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+If the user click the "Stop!" button, the GUI would become:
+![stop](stop.png?raw=true "stop image")
 
-## Library Name Here
-My name: **put your real name here**
+I use functions in gui/base to create the frane and canvas.
+Our board is 15X15.
+References: https://docs.racket-lang.org/gui/frame_.html?q=frame
 
-Write what you did!
-Remember that this report must include:
+`(define frame (new frame%
+                   [label "Simple Gomoku"] ;;needs improvement
+                   [width 600]
+                   [height 600]))`
+                   
+`(new canvas% [parent frame]
+             [paint-callback
+              (lambda (canvas dc)
+                (send dc set-scale 10 10)
+                ;;(send dc set-text-foreground "blue")
+                ;;(send dc draw-text "Don't Panic!" 0 0)
+                (send dc set-pen "black" 0.25 'solid)
+                (let loop ((times 15))
+                  (if (= times 0)
+                      (display "stopped")
+                      (begin (send dc draw-line (* 4 times) 0 (* 4 times) (* 4 15))
+                             (loop (- times 1)))))
+                (let loop ((times 15))
+                  (if (= times 0)
+                      (display "stopped")
+                      (begin (send dc draw-line 0 (* 4 times) (* 4 15) (* 4 times))
+                             (loop (- times 1)))))
+                )])`
+Make a button in the frame
+References:https://docs.racket-lang.org/gui/button_.html
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+`(new button% [parent frame]
+             [label (text-icon "Start!"
+             (make-font #:weight 'normal #:underlined? #f)
+             #:color "Green Yellow" #:height 25)]
+             ; Callback procedure for a button click:
+             [callback (lambda (button event)
+                         (send msg set-label "Gomoku Started"))])`
 
-The narrative itself should be no longer than 350 words. 
+Make a static text message in the frame
+`(define msg (new message% [parent frame]
+                          [label "Please Start the Game!"]))`
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
+The library images/icons contains many function of creating the icon.
+I use images/icons/symbol to make start and stop icons.
+References:http://docs.racket-lang.org/images/Icons.html#%28part._.About_.These_.Icons%29
 
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+I also use pict images/icons/control images/icons/style to make 3D black and white chess.
+![bw](blackwhite.png?raw=true "blackwhite image")
+`(define outline-colorb (icon-color->outline-color "black"))
+ (define brush-pictb (colorize (filled-ellipse 20 20) "black"))
+ (define pen-pictb (linewidth 2 (colorize (ellipse 20 20) outline-colorb)))
+ (bitmap-render-icon
+   (pict->bitmap (inset (cc-superimpose brush-pictb pen-pictb) 1))
+   5/8 glass-icon-material)`
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
@@ -49,3 +80,4 @@ Code should be delivered in two ways:
 [ref-commit]: http://gitref.org/basic/#commit
 [ref-push]: http://gitref.org/remotes/#push
 [pull-request]: https://help.github.com/articles/creating-a-pull-request
+
