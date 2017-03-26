@@ -22,6 +22,6 @@ Code should be delivered in two ways:
 
 1. Full files should be added to your version of this repository.
 1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-[2hdtp/universe]: https://docs.racket-lang.org/teachpack/2htdpuniverse.html
-[2hdtp/image]: https://docs.racket-lang.org/teachpack/2htdpimage.html
-[RSound]: https://docs.racket-lang.org/rsound/index.html
+2hdtp/universe https://docs.racket-lang.org/teachpack/2htdpuniverse.html
+2hdtp/image https://docs.racket-lang.org/teachpack/2htdpimage.html
+RSound https://docs.racket-lang.org/rsound/index.html
