@@ -71,12 +71,15 @@ Make a static text message in the frame
 ```
 
 The library images/icons contains many function of creating the icon.
+
 I use images/icons/symbol to make start and stop icons.
+
 References:http://docs.racket-lang.org/images/Icons.html#%28part._.About_.These_.Icons%29
 
 I also use pict images/icons/control images/icons/style to make 3D black and white chess.
 
 ![bw](blackwhite.png?raw=true "blackwhite image")
+
 ```(define outline-colorb (icon-color->outline-color "black"))
  (define brush-pictb (colorize (filled-ellipse 20 20) "black"))
  (define pen-pictb (linewidth 2 (colorize (ellipse 20 20) outline-colorb)))
