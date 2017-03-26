@@ -1,0 +1,28 @@
+#lang racket
+(require 2htdp/image)
+(require 2htdp/universe)
+(require rsound)
+
+(define music "/Users/dannynguyen/Desktop/OPL/Project")
+(define sound1 (build-path music "E-Mu-Proteus-FX-909-Kick.wav"))
+(define sound2 (build-path music "Dry-Kick.wav"))
+
+
+(define rsound1 (rs-read sound1))
+(define rsound2 (rs-read sound2))
+
+(define (draw-star n)
+  (overlay (star n "solid" "red") (empty-scene 500 500)))
+
+(define (change w a-key)
+  (cond
+    [(key=? a-key "up")(play rsound1)(+ w 10)]
+    [(key=? a-key "down")(play rsound2)(- w 10)]
+    [else w]))
+
+(big-bang 50
+          (to-draw draw-star)
+          (on-key change))
+
+
+                 
