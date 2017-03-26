@@ -21,8 +21,8 @@ Also another interesting feature of racket unit test is that they short circuit.
  "Short circuit"
  (check = 3 3)
  (check = 0 10)
- (check = 4 4) ;; didn't check
- (check = 200 45));; didn't check this when test run this wont fail b/c it short circiut
+ (check = 4 4) ;; does not check
+ (check = 200 45));; does not check this when test run this wont fail b/c it short circiut
 ```
 Output
 ```racket
