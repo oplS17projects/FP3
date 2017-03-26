@@ -76,13 +76,14 @@ I use images/icons/symbol to make start and stop icons.
 
 References:http://docs.racket-lang.org/images/Icons.html#%28part._.About_.These_.Icons%29
 
-![chess](chess.png?raw=true "chess image")
-
 I also use pict images/icons/control images/icons/style to make 3D black and white chess.
+
+![chess](chess.png?raw=true "chess image")
 
 ![bw](blackwhite.png?raw=true "blackwhite image")
 
 ```(define outline-colorb (icon-color->outline-color "black"))
+ (define outline-colorb (icon-color->outline-color "black"))
  (define brush-pictb (colorize (filled-ellipse 20 20) "black"))
  (define pen-pictb (linewidth 2 (colorize (ellipse 20 20) outline-colorb)))
  (bitmap-render-icon
