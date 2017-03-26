@@ -26,7 +26,8 @@ Also another interesting feature of racket unit test is that they short circuit.
  (check = 200 45));; does not check this when test run this wont fail b/c it short circiut
 ```
 Output:
-![alt text] [output]
+
+![alt text][output]
 
 How this lib will help with our project is that it will be used to check that the object and all its helper helper function are working properly. Here a test that will test our project I wrote it before I started writing the objects function all I have done is come up with the functions I think it will use. I wrote the test first because I read that you are supposed to do that in order not to try and make your test work. Kinda like control groups for testing medicine.
 ```racket
@@ -37,16 +38,15 @@ How this lib will help with our project is that it will be used to check that th
    (check-not-equal? (order mm) 5)
    (check-equal? (kgram mm) "gagggagaggcgagaaa")
    (check-not-equal? (kgram mm) "jakejakejakejake")
-   (check = (freqOfStr mm "j") 0)
-   (check = (freqOfStr mm "g") 9)
+   (check = (freqOfStr mm "j") 0) ;; number of j should be 0
+   (check = (freqOfStr mm "g") 9) ;; there are 9 g
    (check = (freqOfStr mm "a") 7)
    (check = (freqOfStr mm "c") 1)
    (check =  (freqOfChar mm "g" "a") 5)
    (check =  (freqOfChar mm "g" "c") 1)
    (check =  (freqOfChar mm "c" "g") 1)
-   ;;(check =  (freqOfChar mm "g" "g") 3)
-   ;;(check =  (freqOfChar mm "a" "a") 2)
-   ))
+   (check =  (freqOfChar mm "g" "g") 3)
+   (check =  (freqOfChar mm "a" "a") 2)))
    ```
 
 <!-- Links -->
@@ -58,4 +58,4 @@ How this lib will help with our project is that it will be used to check that th
 [ref-commit]: http://gitref.org/basic/#commit
 [ref-push]: http://gitref.org/remotes/#push
 [pull-request]: https://help.github.com/articles/creating-a-pull-request
-[output]: https://github.com/Jake-The-Human/FP3/blob/master/Screenshot%20from%202017-03-26%2011-44-54.png
+[output]: https://github.com/Jake-The-Human/FP3/blob/master/Screenshot%20from%202017-03-26%2011-44-54.png 
