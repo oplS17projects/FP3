@@ -7,14 +7,6 @@ You will be in your team before you complete this assignment. You and your teamm
 
 The report template is below, beginning with "Library Name Here."
 
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 ## Library Name Here
 My name: Seokhwan Ko
