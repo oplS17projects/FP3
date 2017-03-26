@@ -1,51 +1,29 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+Name: Minh Nguyen
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+Library: picturing-program
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+For this assignment I decided to take a look at picturing-program, a Racket library that allows you to manipulate and add motion to  images. Since our group project is Virtual Piano, I think this library will fit perfectly for the needs of designing the UI, which includes printing out the PIANO, event handlers to check if any key is pressed and then highlight the corresponding key, that is the basic idea. For the following code, I first defined the image files (piano and arrow) and gave them variable names. Then I format the layout of the piano. To print out the image file, I used the big-bang function, which will create a new world. Inside the function, I added (to-draw) which will output the PIANO, and (on-key) which is the key event handlers in this case. I created the function (key-press) so when the key "arrow down" is pressed, the (move) function will be called and rotate the arrow to be pointing down. When you run this program, the piano image will pop up, and when "down" is pressed, it will replace the PIANO with an arrow and then stop the program.
 
-The report template is below, beginning with "Library Name Here."
+NOTE: Since I can't add pictures onto my code, when you try to run this, you have to insert the pictures of arrow and piano manually in their corresponding define method. I will have them attached.
+```
+#lang racket
+(require picturing-programs)
 
-## How to Prepare and Submit This Assignment
+(define arrow *insert pic here*)
+(define PIANO *insert pic here*)
+(define PIANO2
+  (overlay/align "left" "top" PIANO  (circle (image-height PIANO) "solid" "white")))
+(define (move im) (rotate (* -1 180) im))
+(define (key-press im k)
+  (cond [(equal? k "down") (move arrow)]
+        [else im]))
+(big-bang PIANO2
+          (to-draw show-it)
+          (on-key key-press))
+          
+```
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+Screenshots
 
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![alt text](https://image.ibb.co/jsTGAa/1.png "Piano")
+![alt text](https://image.ibb.co/mR1EwF/2.png "Arrow")
