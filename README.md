@@ -17,35 +17,17 @@ The report template is below, beginning with "Library Name Here."
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
 ## Library Name Here
-My name: **put your real name here**
+My name: Seokhwan Ko
 
-Write what you did!
-Remember that this report must include:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+## Play Report
 
-The narrative itself should be no longer than 350 words. 
+My team has implemented basic structure for our project so far. And I created main window by using racket/gui.
+Bascially, it shows up two content panels, and I tested menu bar and button work.
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+### Test image - FP3
+![test image](/FP3_img_01.png?raw=true "test image")
+![test image](/FP3_img_02.png?raw=true "test image")
+![test image](/FP3_img_03.png?raw=true "test image")
+![test image](/FP3_img_04.png?raw=true "test image")
