@@ -29,7 +29,7 @@ Output:
 
 ![alt text][output]
 
-How this lib will help with our project is that it will be used to check that the object and all its helper helper function are working properly. Here a test that will test our project I wrote it before I started writing the objects function all I have done is come up with the functions I think it will use. I wrote the test first because I read that you are supposed to do that in order not to try and make your test work. Kinda like control groups for testing medicine.
+How this lib will help with our project is that it will be used to check that the object and all its helper helper function are working properly. Here a test that will test our project I wrote it before I started writing the objects function all I have done is come up with the functions I think it will use. I wrote the test first because I read that you are supposed to do that in order not to try and make your test work. Kinda like control groups for testing medicine I guess.
 ```racket
 (test-begin
  "Test string gagggagaggcgagaaa"
