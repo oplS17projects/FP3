@@ -12,16 +12,13 @@ Remember that this report must include:
 
 The narrative itself should be no longer than 350 words. 
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+
+You need 
+at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
 ![test image](/World.png?raw=true "test image")
 
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+They can be found 
 
 2hdtp/universe https://docs.racket-lang.org/teachpack/2htdpuniverse.html
 
