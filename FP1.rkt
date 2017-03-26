@@ -16,10 +16,13 @@
 (define imgtest (bitmap "test.png"))
 
 ;; get image height
-(define img-height (- (image-height imgtest) 1))
+;(define img-height (- (image-height imgtest) 1))
+(define img-height (image-height imgtest))
+
 
 ;; get image width
-(define img-width (- (image-width imgtest) 1))
+;(define img-width (- (image-width imgtest) 1))
+(define img-width (image-width imgtest))
 
 ;; convert struct/anything to string
 (define (any->string any) 
@@ -85,7 +88,7 @@
 (define FinalList
   (append* RGBList))
     
-;; save to text file for test
+;; save to text file for test if the list is correct
 (define out1 (open-output-file "list.txt" #:exists 'replace))
 (write FinalList out1)
 (close-output-port out1)
@@ -95,7 +98,7 @@
 (define FinalGrayList
   (append* GrayList))
 
-;; save to text file for test
+;; save to text file for gray list
 (define grayout (open-output-file "grayout.txt" #:exists 'replace))
 (write FinalGrayList grayout)
 (close-output-port grayout)
@@ -103,7 +106,5 @@
 
 ;; from pixel to bitmap
 ;; the form of color is the struct so it need to be a list of color struct so it can convert to bitmap
-;;(scale 30 (color-list->bitmap (car pixlist) 4 1))
-;;(scale 30 (color-list->bitmap (cadr pixlist) 3 1))
 (define save-photo
   (save-image (color-list->bitmap FinalGrayList img-width img-height) "Sample-output.png"))
