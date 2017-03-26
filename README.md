@@ -1,51 +1,59 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## Library (rsound:fp3), previously used 2htdp Universe/Image
+My name: Danny Nguyen
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+## What I did:
 
-The report template is below, beginning with "Library Name Here."
+In FP1 I explored the 2htdp Universe and Image libraries in hopes of making a side scrolling shooter game. I thought that it would be nice if I could include some background music and add sounds related to the player actions like jumping and shooting etc. So I chose to work with the rsound library. In FP3 I did something simple, building on fp1. Whenever a user hits the "up" arrow the star image will enlarge and play a audio file linked to it, same with when the "down" arrow is pressed the image will shrink and an audio file will be played. This is simple, but similar to how I will link it 
+to actions such as the ones mentioned before. Looking foward I intend to explore these two libraries more in depth and produce and actual prototype of the game.
 
-## How to Prepare and Submit This Assignment
+### Code written while exploring:
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+The definitions show the path to where the .wav audio files are located.
 
-## Library Name Here
-My name: **put your real name here**
+rs-read will read in the .WAV file from the path and return an rsound.
 
-Write what you did!
-Remember that this report must include:
+play procedure that will play the given audio file when either arrows are pressed.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+``` scheme
+#lang racket
+(require 2htdp/image)
+(require 2htdp/universe)
+(require rsound)
 
-The narrative itself should be no longer than 350 words. 
+(define music "/Users/dannynguyen/Desktop/OPL/Project")
+(define sound1 (build-path music "E-Mu-Proteus-FX-909-Kick.wav"))
+(define sound2 (build-path music "Dry-Kick.wav"))
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
+(define rsound1 (rs-read sound1))
+(define rsound2 (rs-read sound2))
 
-You must provide credit to the source for any borrowed images.
+(define (draw-star n)
+  (overlay (star n "solid" "red") (empty-scene 500 500)))
 
-Code should be delivered in two ways:
+(define (change w a-key)
+  (cond
+    [(key=? a-key "up")(play rsound1)(+ w 10)]
+    [(key=? a-key "down")(play rsound2)(- w 10)]
+    [else w]))
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+(big-bang 50
+          (to-draw draw-star)
+          (on-key change))
+```
 
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+## Image output: Same images submitted previously, can't really show the sounds working.
+
+<img src="https://github.com/dannynguyen1/FP1/blob/master/Initial.png" width="200" height="200">
+
+<img src="https://github.com/dannynguyen1/FP1/blob/master/After%20pressing%20up%20arrow.png" width="200" height="200">
+
+<img src="https://github.com/dannynguyen1/FP1/blob/master/After%20pressing%20down%20arrow.png" width="200" height="200">
+
+rsound 1: http://freewavesamples.com/dry-kick
+
+rsound 2: http://freewavesamples.com/e-mu-proteus-fx-909-kick
+
+
+
