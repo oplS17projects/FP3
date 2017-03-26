@@ -1,6 +1,6 @@
-My name: **Saurabh Verma**
+**Name**: Saurabh Verma
 
-Report:
+**Report**:
 
 For the final project, my team is planning to work on a dynamic web application. To accomplish this, it's important to familiarize ourselves with databases and how racket connects and queries them.
 
