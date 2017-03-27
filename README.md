@@ -6,12 +6,15 @@
 ### 2htdp/image
 
 defining a bunch of pictures so I can use it after.
+
 ![p0.png](/p0.png)
 
 place the character on the background.
+
 ![p2.png](/p2.png)
 
 Adding tree to the canvas
+
 ![p1.png](/p1.png)
 
 ### 2htdp/universe
@@ -25,7 +28,8 @@ creating animation
 (animate create-scene)
 ```
 This will product an animation that move timber-man-left from left to right
-![p3.png](/p3.png)![p4.png](/p4.png)![p5.png](/p5.png)
+
+![p3.png](/p3.png) ![p4.png](/p4.png)! [p5.png](/p5.png)
 
 I download all the asset from this [site](http://www.emanueleferonato.com/2015/02/16/create-an-html5-game-like-timberman-in-a-matter-of-minutes-with-mightyeditor/)
 
