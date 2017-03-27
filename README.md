@@ -12,8 +12,10 @@ The html page consisted of two unordered lists. The first list is a list of
 animal names. The second list is the result of using filter to filter out all
 animals names less than four characters in length.
 
-For styling the page, some custom css and javscript were used. I also used 
-bootstrap to make the page responsive, as well as bootsraps built in styling. 
+I used bootstrap to make the page responsive accross multiple devices.
+
+For styling the page, some custom css and javscript were used, as well as 
+bootsraps built in styling. 
 
 
 #### code to render the html
