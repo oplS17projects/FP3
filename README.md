@@ -16,7 +16,7 @@ For styling the page, some custom css and javscript were used. I also used
 bootstrap to make the page responsive, as well as bootsraps built in styling. 
 
 
-##### code to render the html
+#### code to render the html
 
 ```
 
@@ -48,7 +48,7 @@ bootstrap to make the page responsive, as well as bootsraps built in styling.
 
 ```
 
-##### original list and filtered list definitions
+#### original list and filtered list definitions
 
 ```
 
@@ -57,8 +57,7 @@ bootstrap to make the page responsive, as well as bootsraps built in styling.
 
 ```
 
-##### creates a single x-expression representing ul and li html elements 
-##### given many x-expressions (a list)
+#### creates a single x-expression representing ul and li html elements given many x-expressions (a list)
 
 ```
 
@@ -69,5 +68,7 @@ bootstrap to make the page responsive, as well as bootsraps built in styling.
   `(li ,a-fragment))
 
 ```
+
+#### Output
 
 ![fp3 image](/FP3.png?raw=true "fp3 image")
