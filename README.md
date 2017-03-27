@@ -1,7 +1,7 @@
-##(teachpacks/racket-turtle)
+## (teachpacks/racket-turtle)
 My name: Tim Larocque
 
-####My Thought Process
+#### My Thought Process
 
 After testing out the ```(graphics/turtles)``` last time, I found that it was
 rather lackluster in its drawing capabilities. I wanted to continue on the path
@@ -9,7 +9,7 @@ of drawing images, so I decided to go with this library. After reading through
 the commands that the library uses, I confronted the examples that were given
 and decided to play around with the spiral image example.
 
-####The Core of the Code
+#### The Core of the Code
 ```racket
 (define (spiral x w a times)
   (if (<= times 0)
@@ -27,7 +27,7 @@ segment of the spiral to the window. I decided to play around with the input
 parameters to "spiral" and choose various angles to see what kind of spiral
 would be produced.
 
-####Outputs with Their Function Calls
+#### Outputs with Their Function Calls
 ```racket
 (define spiral-image0 (list (change-color COLORS)
                             (spiral 1 1 45 45)))
