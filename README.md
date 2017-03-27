@@ -43,7 +43,7 @@ RSound allows you to do many different neat things. One of the feature is to all
 The RSound library has many useful functionalies. With it, my partner and I plan to use and manipulate the functions to create a game similar to Guitar Hero. 
 
 
-***********************************************OUTPUT IMAGE*************************************************
+--------------------------------------------OUTPUT IMAGE----------------------------------------------
 
 
 ![alt tag](https://github.com/MarittyaKeu/FP3/blob/master/screenshotFP3.png)
