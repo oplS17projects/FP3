@@ -1,7 +1,7 @@
 # FP3: Final Project Assignment 3: Exploration 2
 
 ## RtMidi
-My name: Samuel Toups
+Samuel Toups
 
 My plan was to use the RtMidi library to control a midi-capable piano I have. I want to do something with procedurally generated music, but I have run into a snag trying to get it working.
 
