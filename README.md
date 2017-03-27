@@ -2,7 +2,7 @@
 My name: Josh Everett
 ## Narrative
 
-  This exploration is useful in the scope of the underlying project and our expected implementation.
+   This exploration is useful in the scope of the underlying project and our expected implementation.
 The goal is to create a procedure **doctorScantron** with three arguments: 
 a _string_ (ipv4 address of target machine), a _list of one or two numbers_(range of ports), and _a list of one or two characters_(tcp or udp scan).
 
@@ -73,3 +73,4 @@ crash!
     (error "crash!"))
 'air-bag
 ```
+_https://docs.racket-lang.org/guide/exns.html_
