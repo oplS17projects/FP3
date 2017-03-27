@@ -11,7 +11,7 @@ and a canvas to draw on. It embeds the image of the character on the left side
 and calls a function to generate the strings of the character attributes as well
 as the associated stat value and draws it onto the canvas.
 
-'''
+```
 (define stats (make-hash))
 
 (define (initStats table)
@@ -50,5 +50,5 @@ as the associated stat value and draws it onto the canvas.
 
 
 (send frame show #t)
-'''
+```
 ![stats](/stats.png?raw=true "amazon stats image")
