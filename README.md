@@ -21,8 +21,8 @@ An interaction looks like this:
 Here is a look at the first page of the resulting [output](exploration2.pdf) before the `'turn-page` command:
 ![output image](output_image.png?raw=true "output image")
 
-To open the book, close the book, and turn the page, special calls are made to procedures that manage the PDF.
-Write, on the other hand, is a procedure that writes a paragraph (basically a list of words created using `make-paragraph`) to the book:
+To open the book, close the book, and turn the page, special calls are made to `draw` procedures that manage the PDF.
+Write, on the other hand, is a procedure I made to write a paragraph (an object created using `make-paragraph`) to the book:
 ```
 (define (write-paragraph para)
     (if (null? para)
@@ -43,3 +43,9 @@ All of the position updating is done using variables and procedures I wrote.  Wh
           (else (error "Unknown request")))))
 ```
 Due to the use of `lambda` rather than `define`, this is actually the return value for `make-book`, meaning a book is actually a procedure!
+
+Note that paragraphs are made to be list of words, for instance:
+```
+(define mypara (make-paragraph "We're" "all" "mad" "here."))
+```
+It may seem cumbersome to do this way, but in the end we will be drawing a list of objects which contain musical notes, so this format will be more natural down the road.
