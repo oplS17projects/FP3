@@ -20,7 +20,7 @@ bootsraps built in styling.
 
 #### code to render the html
 
-```
+```racket
 
 (define (fp3-app req)
   (response/xexpr
