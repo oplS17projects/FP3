@@ -20,7 +20,7 @@ For this assignment, I used the  2htdp/image library to test out the differnent 
          (circle 0 "outline" "red")
          shape-list1))
 ```
-![test image](/square_image.jpg?raw=true "Square Image")
+![test image](/test-save?raw=true "Target")
 
 After I was done applying what we've done in class to my library I tryed using some of the predefined functions in my library to make the racket logo. I tried a few different things but ended up drawing the logo like this:
 ```racket
