@@ -66,7 +66,7 @@ Finally, there is a way to create a new window.
 ```
 I wrote this so that the size of the frame could be easily adjusted when we want to actually use it for the project. The ability
 to create an image frame outside the main window is exactly what the final game is going to need.  I was unable to figure out how
-to easily draw in the window, but I plan on spending some time over the next week getting tht working along with basic controol
+to easily draw in the window, but I plan on spending some time over the next week getting tht working along with basic control
 over a car.
 
 ![window](window.png)
