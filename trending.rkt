@@ -4,7 +4,7 @@
 (require 2htdp/image) ;;FP3
 ;(require (planet williams/describe/describe)) ;; useful to figure out a type (regexp returns bytes)
 
-(define (trending n) ;; displays YouTube's Weekly Trending Videos from #n - #1 (n = user specified)
+(define (trending n) ;; displays YouTube's Weekly Trending Videos from #1 - #n (n = user specified)
   (define myurl (string->url "https://www.youtube.com/feed/trending"))
   (define myport (get-pure-port myurl))
   (define title-regex #px"[:alnum:]\"\\s\\stitle=\"[a-zA-Z 0-9.,<>:;~|()!@#$%^&*+=\\-\\[\\]_'/]*") ;; find a video title
