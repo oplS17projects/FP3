@@ -49,6 +49,10 @@ This is the final result:
 
 ![GitHub Image](rackman.png?raw=true "Pacman")
 
+This is a diagram of the program:
+
+![GitHub Image](diagramPac.png?raw=true "Pacman")
+
 
 
 
