@@ -1,51 +1,54 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## My library: 2htdp/image
+My name: David Caizzi
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+For our project, we're making a game so I decided to take a look at another graphics library except this time, I chose one that was a bit more practical than the turtles.
+While testing this library, I got a feel for how things were layed out and how a couple key functions worked.
 
-The report template is below, beginning with "Library Name Here."
+One of the things I made was a smiley procedure. This was useful to me as it gave me an understanding how the coordinate system worked and how to draw curves which ended up being a little tricky.
+![Smiley-Face](/smiley.png?raw=true "Smiley Face")
 
-## How to Prepare and Submit This Assignment
+```racket
+(define (smiley-face)
+  (add-curve
+   (overlay/offset
+    (circle 20 "solid" "black")
+    -35 25
+    (overlay/offset
+     (circle 20 "solid" "black")
+     35 25
+     (circle 100 "solid" "yellow")))
+   40 130 -45 1/3
+   160 130 45 1/3
+   (make-pen "black" 15 "solid" "round" "round")))
+```
+This code overlays two circles over a larger circle and then adds a custom curved line to form the mouth. Nothing super groundbreaking, but I learned a lot about positing things while using overlays.
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+After using the library for a while, I was still  a little unsure about how I could use all the smaller images to build something bigger. I decided to try to make some type of recursive image and hoped it would clear up some of my confusion.
 
-Write what you did!
-Remember that this report must include:
+![Recursive thing](/spirals.png?raw=true "Recursive thing")
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+```racket
+(define (spiral x)
+  (if (= x 0) empty-image
+      (overlay/align
+       (cond ((= (remainder x 4) 0) "left")
+             ((= (remainder x 4) 1) "left")
+             ((= (remainder x 4) 2) "right")
+             ((= (remainder x 4) 3) "right"))
+       (cond ((= (remainder x 4) 0) "top")
+             ((= (remainder x 4) 1) "bottom")
+             ((= (remainder x 4) 2) "top")
+             ((= (remainder x 4) 3) "bottom"))
+       (spiral (- x 1))
+       (circle (* x 20) "solid"
+               (cond ((= (remainder x 4) 0) "green")
+                     ((= (remainder x 4) 1) "blue")
+                     ((= (remainder x 4) 2) "red")
+                     ((= (remainder x 4) 3) "yellow"))))))
+```
+This code recursively draws bigger and bigger circles in alternating corners of the previous circle.
+That code is kind a mess and the end goal isn't exactly what I had in mind, but the whole process of making it was actually really helpful. Because I called the function recusively, I learned about how the overlay function behaved and how it evaluated which gives me some sense of how to make a larger project with it.
 
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+In the future, I plan on pairing this with the 2htdp/universe library and using them both in the game.
