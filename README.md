@@ -1,51 +1,34 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+# FP3
+**Name: LeangSeu Kim**
+**Partner: Chhayhout Chheou**
+**Project Name: Space Shooting**
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+### 2htdp/image
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+defining a bunch of pictures so I can use it after.
+![p0.png](/p0.png)
 
-The report template is below, beginning with "Library Name Here."
+place the character on the background.
+![p2.png](/p2.png)
 
-## How to Prepare and Submit This Assignment
+Adding tree to the canvas
+![p1.png](/p1.png)
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+### 2htdp/universe
 
-## Library Name Here
-My name: **put your real name here**
+creating animation
 
-Write what you did!
-Remember that this report must include:
+```racket
+(define (create-scene width)
+  (underlay/xy background width 160 timber-man-left))
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+(animate create-scene)
+```
+This will product an animation that move timber-man-left from left to right
+![p3.png](/p3.png)![p4.png](/p4.png)![p5.png](/p5.png)
 
-The narrative itself should be no longer than 350 words. 
+I download all the asset from this [site](http://www.emanueleferonato.com/2015/02/16/create-an-html5-game-like-timberman-in-a-matter-of-minutes-with-mightyeditor/)
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+The plan for this project to make the game similiar [timberman](http://www.crazygames.com/game/timberman)
 
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+I will be working on gui part and my partner will be doing the sound. Then finally we will combine it for the game.
