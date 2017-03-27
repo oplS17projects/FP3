@@ -1,51 +1,28 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+My second exploration is on the 2htdp/image and 2htdp/universe libraries.
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+the image library alone is not particularly usefull on its own but it has some purpose.
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+there are many simple procedures in the library such as the circle and rectangle procedures that are easy to use. typing in the following code can give an expected result
+```(racket)
+(circle 5 "solid" "red")
+```
 
-The report template is below, beginning with "Library Name Here."
+fig1_2
 
-## How to Prepare and Submit This Assignment
+the images are placed directly in the command line, not particularly usefull, but it leads into more uses with the universe libraries.
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+A simple procedure they have for testing and such is the animate procedure. The arguments for the procedure are another procedure that takes a simple natural number and outputs a shape. Animate will create a window to display the animation of the shape as the input increases starting at 0
+```(racket)
+(define (funky_circle n)
+  (circle (- 300 n) "solid" (if (eq? (modulo n 2) 0) "red" "blue")))
+(animate funky_circle)
+```
 
-## Library Name Here
-My name: **put your real name here**
+fig2_2
 
-Write what you did!
-Remember that this report must include:
+creates a screen 300x300 pixels of a circle with slowly decreasing radius and flashing blue and red
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+The universe library allows for more direct control over such drawings with uses of states. The big-bang procedure takes an initial state (state meaning a piece of information passed between procedures) and what to do for several cases such as a procedure that says how to draw the world, a procedure that says what to do at each interval and so on. The two procedures I primarly messed around with were to-draw and on-tick
 
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+to-draw takes a procedure and (optionally) two natural numbers and this will make it so whenever the world needs to draw it's self, it will run the procedure it was given, on the current world state (so the procedure given to to-draw needs to accept the world-state as an argument)
+on-tick takes a procedure and will run the procedure given to it on every clock tick, updating the world state with the return value of that procedure.
