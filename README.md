@@ -1,6 +1,8 @@
 # FP3
 **Name: LeangSeu Kim**
+
 **Partner: Chhayhout Chheou**
+
 **Project Name: Space Shooting**
 
 ### 2htdp/image
