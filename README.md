@@ -114,13 +114,13 @@ BLOB-right
 
 ```
 
-My Library: (require racket/gui) For making a simple music player(needed in our game)
+My Library: racket/gui For making a simple music player(needed in our game)
 
 More for getting a head start on the project but couldn't figure out how to 
 combine the music and the playing field together just yet.
 
-(require 2htdp/universe)
-(require (prefix-in htdp: 2htdp/image))
+2htdp/universe
+2htdp/image
 
 My name: Jessica Lai
 
@@ -142,6 +142,9 @@ Then I implemented a simple version of a music player with just the play functio
 I had imagined a track would with a list of con-cells, each holding the name and the filename
 of the music. I eventually realised this was redundant since the symbol evaluates to the filename
 anyways and I could just use that instead of assigning another name to it.
+
+
+Final results(using the enviorment model):
 
 Music player takes a track(list of soundfiles) and has these functions: 
 
