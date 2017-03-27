@@ -28,6 +28,6 @@ Finally, we will define a list of bytes to hold our received message, and send a
   (udp-receive! socket1 my-msg) )
 ```
 
-![program in action](/program_image.png?raw=true "program image")
+![program in action](/program_image_fp3.png?raw=true "program image")
 
 Our port has connected successfully, and we have successfully sent and received a message.  The function we use to receive our message, udp-receive!, prints out the number of bytes in the message, the address, and the port.  
