@@ -16,13 +16,16 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## 2htdp/image 2htdp/universe
+My name: **Molly McGuire**
 
-Write what you did!
-Remember that this report must include:
+What I did for this exploration was to look for comparable objects to the power -ups that a player gets when
+playing the classic flash game 'Bubble Trouble 2'. When bubbles are successfully popped, they occassionaly 
+drop power ups that grant the player longer time on the map, a shield, a special harpoon weapon, etc.
 
-* a narrative of what you did
+I did some research (played the game enough to find out what shapes are which) and I tried my hand at 
+recreating those shapes that I saw- as well as displaying them as they would appear in the game itself.
+
 * highlights of code that you wrote, with explanation
 * output from your code demonstrating what it produced
 * at least one diagram or figure showing your work
@@ -33,19 +36,4 @@ You need at least one image (output, diagrams). Images must be uploaded to your 
 
 ![test image](/testimage.png?raw=true "test image")
 
-You must provide credit to the source for any borrowed images.
 
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
