@@ -8,27 +8,27 @@ First, net/url. This library allowed me to connect to the Oxford Dictionary API,
 
 Here is the piece of code that connects to API, and displays the result in the repl:
 
-'racket
+`racket
 
 (define (search-word word)
   (define url  (string->url (string-append "https://od-api.oxforddictionaries.com:443/api/v1/entries/en/" word)))
   (define header (list app_id app_key))
   (define my-port (get-pure-port url header))
   (display-pure-port my-port))
-'''
+`
+
 Then I explored the gui library. I created a simple window that have a text field and a button. This is the skeleton of the user interface. (And getting information from the user from an interface will also be useful when creating the game.) The user can use the text field to enter the word they wish to search. When the button is pressed it fetches what the user has typed, and it passes that string to a procedure that searches and displays the word. 
 
 Here is the code for the button:
 
-'racket
+`racket
 
 (new button% [parent frame]
              [label "Search"]
              ; Callback procedure for a button click:
              [callback (lambda (button event)
                          (search-word (send word-field get-value)))]) 
-                  
- '
+                        `
  The output:
  
  {
@@ -310,10 +310,4 @@ Here is the code for the button:
     ]
 }> 
                          
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-![test image](/testimage.png?raw=true "test image")
 
