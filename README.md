@@ -10,7 +10,7 @@ recreating those shapes that I saw- as well as displaying them as they would app
 
 This is demonstrated in the below picture. 
 
-![output 2](/output 2.png?raw=true "output 2")
+![output2](/output2.png?raw=true "output2")
 
 
 My next step is to combine the knowledge that I have gained through these explorations with my partner so 
