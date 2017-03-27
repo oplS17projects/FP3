@@ -51,6 +51,6 @@ First of all, some starter code.
 
 Output:
 
-![1](/1.png "1")
+![01](/01.png "01")
 
 In this instance, the program actually uses 2 libraries that I know nothing about, so let's look at them.
