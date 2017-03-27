@@ -10,7 +10,7 @@ I used web-server/insta because it seemed like a good way to run and design the 
 
 To get the webpage up and running:
 
-'''racket
+```racket
 (define (start request)
   (response/xexpr
    '(html
@@ -20,7 +20,7 @@ To get the webpage up and running:
       (p  "Defaults to left align...")
       (p (a ((href "http://www.google.com/")) "Here") " is a link to Google!")
       (img ((height "500px") (src "http://www.directsportseshop.co.uk/Images/ExtraLarge/head_ti_s6_tennis_racket_black.jpg")))))))
-'''
+```
 
 This code sample shows the basic syntax used to add elements to the page, and syntax for providing parameters to idividual elements (such as with the img tag).
 
