@@ -1,21 +1,6 @@
 # FP3: Final Project Assignment 3: Exploration 2
 Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
-
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
 ## 2htdp/image
 My name: Kelly Stilson
 
@@ -32,4 +17,6 @@ I also made it so that he an go in differnt directions, although at first I made
 ![Capture](/Capture.PNG?raw=true "Programm Output")
 
 This will be utilized in our game when the player makes him move left and right.
+
+His moods and directions are arguments passed to a draw-walley function, so as we re-draw him and his moods change, based on the output from the game, the image of Walley will reflect his moods. 
 
