@@ -16,16 +16,20 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+math/statistics and math/distributions
+My name: James Goguen
 
-Write what you did!
-Remember that this report must include:
+I spent a lot of time trying to find libraries relevant to our project idea and ultiamtely figured I would
+like to have a reliable set of mathematical functions relating to averages and statistics on large sets of information
+to be stored in a database.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+After going through a lot of the math library, I came across the statistics and distributions part.
+Alot of the functions seemed simple, but after palying around with them I realized there was a lot
+hidden from the user. 
+
+Discovering the power that a few clean and friendly functions/objects from this library can provide, I chose this lib.
+
+
 
 The narrative itself should be no longer than 350 words. 
 
