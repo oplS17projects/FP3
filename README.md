@@ -1,51 +1,51 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## 2hdtp/universe, 2hdtp/image and Rsound
+My name: Emmanuel Rosario
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+On this exploration I learned  about three different libraries  and how I can use them together. Those libraries were 2hdtp/universe, 2hdtp/image and RSound. After going over all the examples and function on their websites.  I wrote a program that is the starting point on my final project. I’m able to use 2hdtp/universe  to create scene and inside of it, scene can handle the user input. Inside the scene I place four images plus a background, also it display a text. In addition, the text display a prompt the guides the user to play or stop the song and sound. 
 
-The report template is below, beginning with "Library Name Here."
+2hdtp/universe 
+It handles the user input and base on the input it will play or stop a song.
 
-## How to Prepare and Submit This Assignment
+```racket
+; handle input
+(define (handle-key n key)
+  (cond
+    ; play the signal
+    [(key=? key "a") (signal-play my-signal)]
+    ; stop 
+    [(key=? key "s") (stop)]
+    ; play the song
+    [(key-event? key-p) (play a)]
+    [else n]
+    )
+)
+```
+The 2hdtp/image 
+Imported image by placing all of the argument images in a horizontal row, aligned along the centers of the world.
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+```
+; scene drawing
+(define (render y)
+  (underlay/xy (overlay(beside
+                (bitmap "up.png")
+                (bitmap "right.png")
+                (bitmap "down.png")
+                (bitmap "left.png"))
+                (bitmap "music-back.jpg")) 20 200 stop-text))
+```
+RSound
+The RSound library reads and writes WAV files only. Reads a WAV file from the given path, returns it as an rsound.
+```
+; reads the music
+(define a (rs-read "/home/emmanuel/Desktop/Final-P/FP3/Beethoven_5th_Symphony.wav"))
+```                
+![test image](/World.png?raw=true "test image")
 
-## Library Name Here
-My name: **put your real name here**
+They can be found 
 
-Write what you did!
-Remember that this report must include:
+2hdtp/universe https://docs.racket-lang.org/teachpack/2htdpuniverse.html
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+2hdtp/image https://docs.racket-lang.org/teachpack/2htdpimage.html
 
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+RSound https://docs.racket-lang.org/rsound/index.html
