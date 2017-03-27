@@ -4,6 +4,9 @@
 (define socket1
   (udp-open-socket ) )
 
+(define (bind-socket socket name port)
+  (udp-bind! socket name port) )
+
 (define my-msg
   (make-bytes 100) )
 
