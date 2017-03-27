@@ -1,51 +1,10 @@
 # FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## URL/NET, HTML, HTML-PARSING
+My name: **David DaCosta**
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+  For this exploration I chose to work with the url/net, html-parsing, & html libraries. Jacob Adamson & I are doing a Fake News generator so I'm doing these libraries to try to scrape some information off of some websites. I posted in the OPL group forums asking if other students were using these libraries so that we could discuss some of it because I have done web scraping & I did not have an easy time working with these libraries but nobody responded. 
+  For my approach, I created ports of 5 websites: NPR, Huffington Post, Washington Post,USA Today, & CNN. I created the ports using the get-pure-port function & the string-url function ala Professor Fred's example in FP1. Then I converted the ports to (html) objects using the read-html function. I then rewrote the extract pcdata & extract pcdata-from-html-element functions to grab the source code from these html objects. I then created a list of the five html objects & called an iterator function to loop through the list & print out all of the site's sources using the extract pcdata function. What I wish I had completed was pulled specific parts of the site like the Title, Header & Footer. However I did not find much assistance in terms of accomplishing this. 
 
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+The following is some of the tail end of the source for washington posts website followed by the "done" that prints when the loop terminates on nul.
+![realnewsorfake](/realnewsorfake.png?raw=true "FAKE NEWS")
