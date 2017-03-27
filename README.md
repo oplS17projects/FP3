@@ -38,7 +38,7 @@ From this little stream driver, I was able to manipulate the stream to get it pl
 
 What's nice about RShound is that it also outputs some simple text about queue and stream health as can be seen in the image below.
 
-![output_image](/outputimage.png?raw=true "output image")
+![output_image](/output_image.png?raw=true "output image")
 
 Issues:
 
