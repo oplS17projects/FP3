@@ -1,51 +1,91 @@
 # FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+DUE Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## My Library: plot
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+My name: Devon Hills
 
-The report template is below, beginning with "Library Name Here."
 
-## How to Prepare and Submit This Assignment
+### What I Did:
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+My partner and I decided to create an application that monitors vehicle maintenance statistics and vehicle information in order for the owner to know when they should expect to need repairs/ and the costs over time of such maintenance. We will be using both database libraries and plot libraries. For FP3 I am exploring the plot library to get an idea of the various functions and utilities available for displaying all the information we will be gathering.
 
-## Library Name Here
-My name: **put your real name here**
+I began by simply plotting the sample graph given in the plot library to ensure everything was working properly.
+```
+(plot (function sin (- pi) pi #:label "y = sin(x)"))
+```
 
-Write what you did!
-Remember that this report must include:
+I then started by creating a custom graph using a list to post multiple lines of data at once. I used a simple y = mx + b formula for the line slopes, as the goal was just to create multiple data lines in one graph. I experimented with the various plot parameters to change the x and y bounds, labels, colors, size, etc.
+```
+(define (compare-car-mileage)
+(plot (list (axes)
+            (function (lambda (x) (+ (* -1/2 x) 80)) #:color 2 #:label "Honda")
+            (function (lambda (x) (+ (* -1/3 x) 70)) #:color 3 #:label "Toyota")
+            (function (lambda (x) (+ (* -1/6 x) 75)) #:color 4 #:label "Ford"))
+      ;; add custom title and x/y labels
+      #:title "Sample car comparison graph"
+      #:x-label "age (years)" #:y-label "fuel efficency (mpg)"
+      #:x-min 0
+      #:x-max 35
+      #:y-min 40
+      #:y-max 100))
+```
+Which produces:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+![car1](/car1.png?raw=true "car1")
 
-The narrative itself should be no longer than 350 words. 
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+I then made a similar graph, but using custom defined coordinates rather than a slope, which would be more along the lines of data we would retrieve from our database. I created 3 vehicles which stored the coordinate information:
+```
+(define car1
+      (list #(0 100) #(5 140) #(10 135) #(15 161) #(20 172) #(25 183)))
+(define car2
+      (list #(0 90) #(5 120) #(10 133) #(15 142) #(20 150) #(25 171)))
+(define car3
+      (list #(0 50) #(5 60) #(10 70) #(15 100) #(20 150) #(25 190)))
+```
 
-![test image](/testimage.png?raw=true "test image")
+And then graphed them similarly to above, but passing the car information to the lines and points functions:
+```
+(plot (list (axes)
+            (lines car1 #:color 5 #:label "Honda")
+            (points car1 #:color 5)
+            (lines car2 #:color 6 #:label "Toyota")
+            (points car2 #:color 5)
+            (lines car3 #:color 7 #:label "Ford")
+            (points car3 #:color 5))
+                   #:x-label "age (years)"
+                   #:y-label "cost ($)"
+                   #:title "Monthly maintenance cost over time"
+                   #:x-max 30
+                   #:y-min 0
+                   #:y-max 200)
+```
 
-You must provide credit to the source for any borrowed images.
+Which produces:
 
-Code should be delivered in two ways:
+![car2](/car2.png?raw=true "car2")
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+Finally, I created a bar graph, which could be used to portray different types of information:
+```
+(plot (list (discrete-histogram
+               (list #(Honda 90)
+                     #(Toyota 67)
+                     #(Ford 74)
+                     )))
+        #:x-label "Vehicle manufacturer" #:y-label "Time (Days)"
+        #:title "Days before maintenance required on vehicle"
+        #:x-min 0
+        #:x-max 5
+        #:y-min 0
+        #:y-max 100)
+```
+
+Which produces:
+
+![car3](/car3.png?raw=true "car3")
+
+
+
+NOTE: All of the above data is arbitrary and nonsensical and was made up solely to test plot features. When we implement our program, data will be obtained through our stored information.
