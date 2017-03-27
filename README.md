@@ -1,9 +1,3 @@
-## How to Prepare and Submit This Assignment
-
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
 ## Csv-reading
 My name: Jonathan Murphy
 
@@ -67,17 +61,6 @@ So I wrote:
                 (display ".\n")
                 (set! var (next-row2)))))
 ~~~~
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words.
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+Full output is in statement.txt and an example is in the following image.
 
 ![Output](FP3.png?raw=true "test image")
