@@ -1,7 +1,0 @@
-#lang racket
-;;Using rsound to add sounds to our game
-(require (planet clements/rsound))
-
-;;Function that will load sounds from file into memory
-(rs-read "
-  
