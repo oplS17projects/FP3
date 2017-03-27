@@ -1,5 +1,4 @@
-## net/url
-## csv-reading
+## Libaries Explored: net/url & csv-reading
 My name: Sim Dy
 
 For this exploration, I wanted to practice pulling stock market data in the form of CSV, manipulating the data and storing it using the library I explored from FP1: simple-xlsx library.
@@ -9,16 +8,16 @@ The current project concept is to make a service which will pull stock market pe
 I am using FP3 to tackle the first part of the project (pulling historical stock data) and also finding different sources for stock performances. 
 
 ## Historical Stock Quotes Data Sources
-1. [Financial Content]: https://markets.chron.com/chron/?Page=HISTORICAL&Ticker=GOOG
-2. [Yahoo]: https://finance.yahoo.com/q/hp?s=GOOG
-3. [Google]: https://www.google.com/finance/historical?q=GOOG
-4. [Investopedia]: https://simulator.investopedia.com/stocks/goog/historical
-5. [Quotemedia]: https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/
-6. [Dukascopy]: https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/
-7. [Kumo swep]: https://kumo.swcp.com/stocks/
-8. [AOL]: https://finance.aol.com/quotes/google-inc/goog/nas/historical-prices
-9. [MSN]: https://moneycentral.msn.com/investor/charts/chartdl.aspx?Symbol=GOOG
-10. [FinData]: https://www.findata.co.nz/Markets/StockQuote/NASDAQ/goog.htm
+1. [Financial Content]
+2. [Yahoo]
+3. [Google]
+4. [Investopedia]
+5. [Quotemedia]
+6. [Dukascopy]
+7. [Kumo swep]
+8. [AOL]
+9. [MSN]
+10. [FinData]
 
 The libraries used are:
 
@@ -149,3 +148,15 @@ However, I am unable to copy the list which has the correct data formats into th
 3. Decide how to store the data and from what source. A set of data for popular companies could be stored locally while any obscure or lesser known companies can be pulled directly from the internet using net/url library
 4. Use other libraries like plot to show different visuals from those available in simple-xlsx library
 5. Develop support for multi-company comparisions of stock performance 
+
+<!-- Links -->
+[Financial Content]: https://markets.chron.com/chron/?Page=HISTORICAL&Ticker=GOOG
+[Yahoo]: https://finance.yahoo.com/q/hp?s=GOOG
+[Google]: https://www.google.com/finance/historical?q=GOOG
+[Investopedia]: https://simulator.investopedia.com/stocks/goog/historical
+[Quotemedia]: https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/
+[Dukascopy]: https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/
+[Kumo swep]: https://kumo.swcp.com/stocks/
+[AOL]: https://finance.aol.com/quotes/google-inc/goog/nas/historical-prices
+[MSN]: https://moneycentral.msn.com/investor/charts/chartdl.aspx?Symbol=GOOG
+[FinData]: https://www.findata.co.nz/Markets/StockQuote/NASDAQ/goog.htm
