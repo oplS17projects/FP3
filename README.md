@@ -3,9 +3,15 @@ My name: Alexander Infantino
 
 This library contains various procedures to play and manage sounds.
 
-** This is not installed by default. You must use the package manager in racket to install the RSound package **
+This is not installed by default. You must use the package manager in racket to install the RSound package
 
-Once the package installed, it is very easy to tell if everything is setup properly. Calling
+Once the package installed, it is very easy to tell if everything is setup properly.
+First add
+```
+(require rsound)
+```
+
+and then simply call
 
 ```
 (play ding)
@@ -36,9 +42,13 @@ Since I am trying to create a game with my final project, I wanted to see how ea
 
 From this little stream driver, I was able to manipulate the stream to get it playing, stop playing, change the volume, etc...
 
-What's nice about RShound is that it also outputs some simple text about queue and stream health as can be seen in the image below.
+What's nice about RSound is that it also outputs some simple text about queue. Here is what the program I wrote looks like when run fully.
 
 ![output_image](/output_image.png?raw=true "output image")
+
+Further Study:
+
+I need to look farther into manipulating the stream queue to see how adding more sounds affects it.
 
 Issues:
 
