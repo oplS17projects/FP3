@@ -7,7 +7,7 @@ there are many simple procedures in the library such as the circle and rectangle
 (circle 5 "solid" "red")
 ```
 
-fig1_2
+![fig1_2.bmp](/fig1_2.png?raw=true "fig1_2")
 
 the images are placed directly in the command line, not particularly usefull, but it leads into more uses with the universe libraries.
 
@@ -18,7 +18,7 @@ A simple procedure they have for testing and such is the animate procedure. The 
 (animate funky_circle)
 ```
 
-fig2_2
+![fig2_2.bmp](/fig2_2.png?raw=true "fig2_2")
 
 creates a screen 300x300 pixels of a circle with slowly decreasing radius and flashing blue and red
 
