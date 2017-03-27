@@ -1,5 +1,5 @@
 ## racket/tcp
-My name: **Ibrahim Mkusa **
+My name: Ibrahim Mkusa 
 
 
 I played around with tcp library. It allows communication via tcp ports. They
