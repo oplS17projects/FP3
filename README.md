@@ -43,6 +43,9 @@ The example file that I have used from an online source (``gl-frame.rkt``) initi
 canvas to draw on and provided the ``add-key-mapping`` function. I would have liked to do this file myself, 
 but I ran out of time and compromised.
 
+
+![Image of simulation](/img.png?raw=true)
+
 Ask questions publicly in the email group.
 
 ## How to Prepare and Submit this assignment
