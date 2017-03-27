@@ -19,7 +19,7 @@ An interaction looks like this:
 ((myBook 'close))
 ```
 Here is a look at the first page of the resulting [output](exploration2.pdf) before the `'turn-page` command:
-![output image](output_image?raw=true "output image")
+![output image](output_image.png?raw=true "output image")
 
 To open the book, close the book, and turn the page, special calls are made to procedures that manage the PDF.
 Write, on the other hand, is a procedure that writes a paragraph (basically a list of words created using `make-paragraph`) to the book:
