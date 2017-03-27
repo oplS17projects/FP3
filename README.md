@@ -1,51 +1,54 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## My Library:  (require  2htdp/image)
+My name: Brett Lundy
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+What I did:
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+For this assignment, I used the  2htdp/image library to test out the differnent kind of images I could  personally make. I really enjoyed this library, because unlike the turtles library I could draw and fill images, and there were many predefined functions that allowed me to easily draw things that I couldn't in the turtles library. I was also able to use some methods we learned in class, like making a list of objects and I managed to use foldl on a list of shrinking circles to make a target:
+```racket
+(define (make-shape-list shape rad md col)
+  (if (<= rad 0)
+      '()
+      (cons
+       (shape rad md col)
+       (make-shape-list shape (- rad 10) md col))))
 
-The report template is below, beginning with "Library Name Here."
+(define shape-list1
+  (make-shape-list circle 100 "outline" "red"))
 
-## How to Prepare and Submit This Assignment
+(define (foldl-circle shape-list)
+  (foldl (lambda (a result) (underlay result a))
+         (circle 0 "outline" "red")
+         shape-list1))
+```
+![test image1](/test-save2?raw=true "Target")
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+After I was done applying what we've done in class to my library I tried using some of the predefined functions in my library to make the racket logo. I tried a few different things but ended up drawing the logo by making two rectangles and offseting the second rectangle to the edge of the first, saving that as a image. tTen drawing a unfilled circle with a curved line and a diagonal line, and overlaying them ontop of one another and saving that as an image. and lastly overlaying the cirle image on the square image:
+```racket
+(define background1
+  (rectangle 150 300 "solid" "red"))
 
-## Library Name Here
-My name: **put your real name here**
+(define background2
+  (rectangle 150 300 "solid" "blue"))
 
-Write what you did!
-Remember that this report must include:
+(define real-background
+  (overlay/offset background1 150 0 background2))
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+(define circle-logo
+  (add-line
+   (scene+curve
+    (circle 150 "outline" "black")
+    50 40 0 1/3
+    250 260 0 1/3
+    "white")
+   48 260 150 150 "white"))
 
-The narrative itself should be no longer than 350 words. 
+(define racket-logo
+  (overlay circle-logo real-background))
+```
+![test image2](/test-save?raw=true "Racket logo")
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+Even though it was redundant I made my own little save function, mostly because the already defined save function allows one to give a height and width and I wanted to stay away from that:
+```racket
+(define (save-the-image image filename)
+  (save-image image filename))
+```
