@@ -1,19 +1,17 @@
+#lang racket 
+(require racket/gui)
 
-## Library: racket/gui
-My name: Van Ha
-
-
-Since Jonathan and I are creating a RPG character generator, I though a GUI would
-be useful for this. In this exploration, the program generates a hash table of random
-values from 1 to 20 since we are using the standard d20 dice system.
-After the program generates the hash table. It displays it by creating a new frame
-and a canvas to draw on. It embeds the image of the character on the left side
-and calls a function to generate the strings of the character attributes as well
-as the associated stat value and draws it onto the canvas.
-
-'''
 (define stats (make-hash))
 
+(define tPoints 100)
+
+(define (changePoints x)
+  (set! tPoints x))
+
+(define (resetPoints)
+  (changePoints 100))
+
+  
 (define (initStats table)
   (hash-set! table "Strength" (random 1 20))
   (hash-set! table "Dexterity" (random 1 20))
@@ -50,5 +48,3 @@ as the associated stat value and draws it onto the canvas.
 
 
 (send frame show #t)
-'''
-![stats](/stats.png?raw=true "amazon stats image")
