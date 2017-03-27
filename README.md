@@ -30,12 +30,12 @@ Here is the code for the button:
                          (search-word (send word-field get-value)))]) 
                        ```
                        
- ![FP3](/FP3.png?raw=true "FP3 image")
+ ![FP3](/FP3.png?raw=true "FP3")
  
  The output is in the format of a JSON query (the other person in the group is look into that library)
  
  The output:
-  ```JSON
+  ```
  {
     "metadata": {
         "provider": "Oxford University Press"
