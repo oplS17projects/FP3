@@ -1,6 +1,6 @@
 ## racket/tcp
-My name: Josh Everett
-## Narrative
+Josh Everett
+## Abstract
 
    This exploration is useful in the scope of the underlying project and our expected implementation.
 The goal is to create a procedure **doctorScantron** with three arguments: 
@@ -18,6 +18,7 @@ Ideally we will allow for constructor to take an entire subnet or range of addre
 ![concept drawing](/IMG_0667.jpg?raw=true "concept")
 
 
+## Exploring
   Not much will be required from our tcp or udp libraries. We will only attempt to initiate a connection, and if we suceed we chalk it up to success. This can pose problems when dealing with firewalls that without reviewing packet captures and manual control of flags we can't avoid. We will not attempt to parse any information from the response. 
 
 Here I connect to one of Google's public DNS server on port 53 ( port open for DNS)
