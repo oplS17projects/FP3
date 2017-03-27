@@ -17,7 +17,6 @@
     (pstream-queue play sound (+ time 44100))
     (define next (+ time length))
     ;(pstream-current-frame pstream) → natural?
-    (sleep (* 1/44100 (- next (pstream-current-frame play))))
     (looping next)))
 
 (play-forever play)
