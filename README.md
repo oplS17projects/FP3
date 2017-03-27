@@ -42,7 +42,7 @@ All of the position updating is done using variables and procedures I wrote.  Wh
           ((eq? m 'write) write-paragraph)
           (else (error "Unknown request")))))
 ```
-Due to the use of `lambda` rather than `define`, this is actually the return value for `make-book`, meaning a book is actually a procedure!
+Due to the use of `lambda` rather than `define`, this is actually the return value for `make-book`, meaning a book is actually a procedure!  And, it returns procedures that the user wants to use.
 
 Note that paragraphs are made to be list of words, for instance:
 ```
