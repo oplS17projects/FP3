@@ -1,51 +1,37 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## net/url racket/gui
+My name: Joao Carlos Almeida
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+For our project we will be creating a dictionary interface, that will allow the user to find the definition of a word and we will save the user’s search history so that the user will be able to play games to practice their newly acquired vocabulary. The two libraries I explored will be used to create the first part of the project. 
 
-The report template is below, beginning with "Library Name Here."
+First, net/url. This library allowed me to connect to the Oxford Dictionary API, and fetch the definition of the word. This was the most difficult part of the assignment because the API documentation had no instruction of how to use it using racket. I had to read the instructions for JAVA and then adapt to the net/url library by reading the library’s documentation.
 
-## How to Prepare and Submit This Assignment
+Here is the piece of code that connects to API, and displays the result in the repl:
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+```racket
 
-## Library Name Here
-My name: **put your real name here**
+(define (search-word word)
+  (define url  (string->url (string-append "https://od-api.oxforddictionaries.com:443/api/v1/entries/en/" word)))
+  (define header (list app_id app_key))
+  (define my-port (get-pure-port url header))
+  (display-pure-port my-port))
+```
 
-Write what you did!
-Remember that this report must include:
+Then I explored the gui library. I created a simple window that have a text field and a button. This is the skeleton of the user interface. (And getting information from the user from an interface will also be useful when creating the game.) The user can use the text field to enter the word they wish to search. When the button is pressed it fetches what the user has typed, and it passes that string to a procedure that searches and displays the word. 
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+Here is the code for the button:
 
-The narrative itself should be no longer than 350 words. 
+```racket
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+(new button% [parent frame]
+             [label "Search"]
+             ; Callback procedure for a button click:
+             [callback (lambda (button event)
+                         (search-word (send word-field get-value)))]) 
+                         
+ ```
+                       
+ ![FP3](/FP3.png?raw=true "FP3")
+ 
+ The output is in the format of a JSON query (the other person in the group is look into that library)
+ 
