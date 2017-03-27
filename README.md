@@ -1,51 +1,53 @@
 # FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## racket/gui
+My name: Mohammed Nayeem
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+In this exploration I chose to look at the GUI library. At first I thought the library was insanely packed with content and couldn't really understand it too much but I continued with it. From the GUI library I went with a canvas. This allowed me to draw within the canvas in a certain order. I was playing around with the code and tried to add a text field in just by playing around with it and it somehow was creating the text field over and over again. I still haven't figured out how that happened but I believe this library constantly updates the canvas. This could be why there a lot of text fields when I messing around with code.
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+In the beginning of the code I create the frame: 
+```
+(define frame (new frame%
+                   [label "FP3 - Rackman"]
+                   [width 600]
+                   [height 600]))
+```
 
-The report template is below, beginning with "Library Name Here."
+This pretty much names it FP3 - Rackman and sets the height and the width to 600x600.
 
-## How to Prepare and Submit This Assignment
+The next piece of code just brings the pacman image into program:
+```
+(define pacImage (read-bitmap "/home/mohammed/Desktop/pacman.jpg"))
+```
+pacImage is an image of Pacman.
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+Alright, let's get to the meat of the program:
 
-## Library Name Here
-My name: **put your real name here**
+```
+(new canvas% [parent frame]
+             [paint-callback
+              (lambda (canvas dc)
+                (send dc set-scale 2 2)
+                (send dc set-text-foreground "blue")
+                (send dc draw-text "Welcome to Rackman" 60 0)
+                (send dc draw-bitmap pacImage 35 35)
+                (send dc set-scale 1.5 1.5)
+                (send dc set-text-foreground "red")
+                (send dc draw-text "Press Any Button to Continue" 90 370))])
+```
 
-Write what you did!
-Remember that this report must include:
+This creates a canvas which contains a lambda that just creates the labels and calls the image to show at a certain position on the canvas. 
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+The last line:
+```
+(send frame show #t)
+```
+This shows everything :D
 
-The narrative itself should be no longer than 350 words. 
+This is the final result:
+![GitHub Image](pacman.png?raw=true "Pacman")
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
 
-You must provide credit to the source for any borrowed images.
 
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+Credits: 
+https://upload.wikimedia.org/wikipedia/en/2/28/Pac-Man_character_art_-_The_Adventure_Begins.png
