@@ -24,23 +24,12 @@ We will be using this library to design and manipulate(somewhat) images, backgro
 I took this as an opportunity to begin work on main character in our game, which at this point is a Narwhal, tentatively named Walley.
 
 I chose to design him in pieces instead of just use a bitmap so that we can change how he looks easily. He has moods, right now its just happy and sad, but we will be expanding it to dead and winning.
-![capture1](/capture1.png?raw=true "Moody Walley")
-![capture2](/capture2.png?raw=true "Moody Walley")
+![capture1](/capture1.PNG?raw=true "Moody Walley")
+![capture2](/capture2.PNG?raw=true "Moody Walley")
 
 I also made it so that he an go in differnt directions, although at first I made it more complicated than it needed to be, by rotating the objects he is made out of first, and then placing them all together, but then I realized I could just put him together and THEN flip him horizontally.
 
-![Capture](/Capture.png?raw=true "Programm Output")
+![Capture](/Capture.PNG?raw=true "Programm Output")
 
 This will be utilized in our game when the player makes him move left and right.
 
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
