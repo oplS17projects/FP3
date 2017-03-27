@@ -1,51 +1,55 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## RSound
+My name: Alexander Infantino
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+This library contains various procedures to play and manage sounds.
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+This is not installed by default. You must use the package manager in racket to install the RSound package
 
-The report template is below, beginning with "Library Name Here."
+Once the package installed, it is very easy to tell if everything is setup properly.
+First add
+```
+(require rsound)
+```
 
-## How to Prepare and Submit This Assignment
+and then simply call
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+```
+(play ding)
+```
 
-## Library Name Here
-My name: **put your real name here**
+should play a small ding from your computer.
 
-Write what you did!
-Remember that this report must include:
+Since I am trying to create a game with my final project, I wanted to see how easy it is to manipulate streams and load sounds from external files. My favorite show is Parks and Recreation so I wanted to see if I could get the theme song playing from my racket program. RSound contains a lot of helpful calls that can be used to directly manipulate a stream once its been instanciated. I pretty much create a simple object that works much like the make-account procedure does in PS4.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+```
+(define (make-stream)
+    (let ((stream (make-pstream)))
+        (define (set-volume amount)
+            (begin (set! stream
+                (pstream-set-volume! stream amount))))
+        (define (play-stream location)
+            (pstream-play stream (rs-read location)))
+        (define (stop-stream)
+            (stop))
+        (define (dispatch message)
+            (cond ((eq? message 'set-volume) set-volume)
+                  ((eq? message 'play-stream) play-stream)
+                  ((eq? message 'stop-stream) stop-stream)
+                  ((eq? message 'play-ding) play-ding)
+                  (else (error "Uknown request"))))
+        dispatch))
+```
 
-The narrative itself should be no longer than 350 words. 
+From this little stream driver, I was able to manipulate the stream to get it playing, stop playing, change the volume, etc...
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+What's nice about RSound is that it also outputs some simple text about queue. Here is what the program I wrote looks like when run fully.
 
-![test image](/testimage.png?raw=true "test image")
+![output_image](/output_image.png?raw=true "output image")
 
-You must provide credit to the source for any borrowed images.
+Further Study:
 
-Code should be delivered in two ways:
+I need to look farther into manipulating the stream queue to see how adding more sounds affects it.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+Issues:
 
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+I have been running into issues where DrRacket will crash and I think it might be related how to I am handling the sound queues. I haven't yet been able to stop the sound from playing and then adding a new sound to the queue. This will take further looking at, but currently this library may prove useful for the final project.
