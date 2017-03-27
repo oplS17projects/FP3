@@ -40,7 +40,7 @@ These include the get-sheet-rows procedure, which gets data in a similar manner 
     (printf "~a\n" (get-cell-value "A1" test))
     ))
 ```
-Outputs
+Outputs:
 ``` racket
 ((Object 1 Data A Data B Data C) (Object 2 Data A Data B Data C) (Object 3 Data A Data B Data C))
 Object 1
