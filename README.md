@@ -16,28 +16,23 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## 2htdp/image
+My name: Kelly Stilson
 
-Write what you did!
-Remember that this report must include:
+I explored the 2htdp/image library.
+We will be using this library to design and manipulate(somewhat) images, backgrounds, and items in our game.
+I took this as an opportunity to begin work on main character in our game, which at this point is a Narwhal, tentatively named Walley.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+I chose to design him in pieces instead of just use a bitmap so that we can change how he looks easily. He has moods, right now its just happy and sad, but we will be expanding it to dead and winning.
+![capture1](/capture1.png?raw=true "Moody Walley")
+![capture2](/capture2.png?raw=true "Moody Walley")
 
-The narrative itself should be no longer than 350 words. 
+I also made it so that he an go in differnt directions, although at first I made it more complicated than it needed to be, by rotating the objects he is made out of first, and then placing them all together, but then I realized I could just put him together and THEN flip him horizontally.
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+![Capture](/Capture.png?raw=true "Programm Output")
 
-![test image](/testimage.png?raw=true "test image")
+This will be utilized in our game when the player makes him move left and right.
 
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
 1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
 <!-- Links -->
