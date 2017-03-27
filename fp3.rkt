@@ -1,27 +1,18 @@
-# FP3: Final Project Assignment 3: Exploration 2
+#lang racket
+(require web-server/servlet
+         web-server/servlet-env)
 
-## web-server/sevlet-env
-My name: Scott Mello
+(define root (current-directory))
 
+(define x (list "dog" "cat" "wolf" "horse" "cow" "bear"))
+(define y (filter (lambda (x) (> (string-length x) 3)) x))
 
-I used the web-server/sevlet-env library to render an html page using racket,
-and then served up the rendered html to the racket server running on my
-local machine, which in turn displayed it to the browser.
+(define (render-as-itemized-list fragments)
+  `(ul ,@(map render-as-item fragments)))
 
-The html page consisted of two unordered lists. The first list is a list of
-animal names. The second list is the result of using filter to filter out all
-animals names less than four characters in length.
-
-I used bootstrap to make the page responsive accross multiple devices.
-
-For styling the page, some custom css and javscript were used, as well as 
-bootsraps built in styling. 
-
-
-#### code to render the html
-
-```racket
-
+(define (render-as-item a-fragment)
+  `(li ,a-fragment))
+ 
 (define (fp3-app req)
   (response/xexpr
    `(html (head (title "FP3")
@@ -47,30 +38,12 @@ bootsraps built in styling.
                                (h2 "List After Filter")
                                (p "Resulting list of animals with string lengths greater than 4")
                                ,(render-as-itemized-list y))))))))
+ 
+;;(serve/servlet fp3-app
+;;               #:servlet-path "/fp3")
 
-```
-
-#### original list and filtered list definitions
-
-```racket
-
-(define x (list "dog" "cat" "wolf" "horse" "cow" "bear"))
-(define y (filter (lambda (x) (> (string-length x) 3)) x))
-
-```
-
-#### creates a single x-expression representing ul and li html elements given many x-expressions (a list)
-
-```racket
-
-(define (render-as-itemized-list fragments)
-  `(ul ,@(map render-as-item fragments)))
-
-(define (render-as-item a-fragment)
-  `(li ,a-fragment))
-
-```
-
-#### Output
-
-![fp3 image](/FP3.png?raw=true "fp3 image")
+(serve/servlet fp3-app
+                 #:extra-files-paths
+                 (list
+                  (build-path root "css")
+                  (build-path root "js")))
