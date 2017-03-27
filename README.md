@@ -51,4 +51,4 @@ Code should be delivered in two ways:
 [pull-request]: https://help.github.com/articles/creating-a-pull-request
 
 
-git@github.com:MurphyWants/FP3.git
+http://www.baseball-reference.com/managers/coxbo01.shtml
