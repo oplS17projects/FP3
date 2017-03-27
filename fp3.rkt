@@ -1,14 +1,29 @@
-## plot and db
-My name: Christopher Pearce
+#lang racket
+(require db)
+(require plot)
 
-For this exploration I decided to work with plot to try visualizing some data from a database. For this example,
-I decided to use the iris dataset obtained at https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
-I used a python script to populate the database (racket db lacks a convenient way to do hundreds of inserts) and create 
-the PCA so I could focus just on using plot and racket for the visualizing.
+;; db connection
+(define conn (sqlite3-connect #:database "my.db"))
 
-First I plotted a few of the samples in the racket documentation:
 
-```racket
+; check iris was inserted properley, used a python script to focus on using plot, the standard racket
+; db module is lacking a conveient way to to insert serveral rows 
+(query-rows
+ conn
+ "select count(*) from iris")
+
+(define iris-data (query-rows
+                   conn
+                   "select sepal_len, sepal_width, petal_len, petal_width from iris"))
+
+; a few 3d plots to see what its like
+(parameterize ([plot-title  "An R × R → R function"]
+                 [plot-x-label "x"]
+                 [plot-y-label "y"]
+                 [plot-z-label "cos(x) sin(y)"])
+    (plot3d (contour-intervals3d (λ (x y) (* (cos x) (sin y)))
+                                 (- pi) pi (- pi) pi)))
+
 (parameterize ([plot-decorations?  #f]
                  [plot3d-samples     75])
     (define (f1 θ ρ) (+ 1 (/ θ 2 pi) (* 1/8 (sin (* 8 ρ)))))
@@ -18,12 +33,8 @@ First I plotted a few of the samples in the racket documentation:
                            #:line-style 'transparent #:alpha 2/3)
                   (polar3d f2 #:color "navajowhite"
                            #:line-style 'transparent #:alpha 2/3))))
-```
-![shell image](/shell.png?raw=true "shell image")
 
-Then I moved onto trying a 2d and 3d plot using the data from iris:
-
-```racket
+; now to try plotting a histogram from the database
 (define sepal_len_setosa (query-rows
                   conn
                   "select class, sepal_len from iris where class ='Iris-setosa'"))
@@ -35,7 +46,25 @@ Then I moved onto trying a 2d and 3d plot using the data from iris:
 (define sepal_len_virginica (query-rows
                   conn
                   "select class, sepal_len from iris where class ='Iris-virginica'"))
-                  
+
+(define sepal_width (query-rows
+                  conn
+                  "select class, sepal_width from iris"))
+
+(define petal_len (query-rows
+                  conn
+                  "select class, petal_len from iris"))
+
+(define petal_width (query-rows
+                  conn
+                  "select class, petal_width from iris"))
+
+(plot (discrete-histogram sepal_len_setosa
+                          
+                           )
+      #:x-label "class" #:y-label "sepal length (cm)"
+                          #:title "Iris sepal length")
+
 (plot (list
        (discrete-histogram sepal_len_setosa
                            #:skip 1 #:x-min 0
@@ -49,15 +78,22 @@ Then I moved onto trying a 2d and 3d plot using the data from iris:
        )
       #:x-label "class" #:y-label "sepal length (cm)"
       #:title "Iris sepal length")
-```
-This code runs three queries on the database to select the sepal length of each class of iris
-and then plots three separate histograms of for each class:
 
-![histogram image](/histogram.png?raw=true "histogram image")
+; now lets try a 3d plot of the iris principle components
+; example of 3d scatter plot in racket docs
+(define (runif) (- (* 2 (random)) 1))
+(define (rnormish) (+ (runif) (runif) (runif) (runif)))
+(define xs0 (build-list 1000 (λ _ (rnormish))))
+(define ys0 (build-list 1000 (λ _ (rnormish))))
+(define zs0 (build-list 1000 (λ _ (rnormish))))
+(define mags (map (λ (x y z) (sqrt (+ (sqr x) (sqr y) (sqr z))))
+                    xs0 ys0 zs0))
+(define xs (map / xs0 mags))
+(define ys (map / ys0 mags))
+(define zs (map / zs0 mags))
+(plot3d (points3d (map vector xs ys zs) #:sym 'dot)
+          #:altitude 25)
 
-Then I plotted a 3d Principal Component Analysis of the dataset:
-
-```racket
 (define pca1 (query-rows
                   conn
                   "select pc1, pc2, pc3 from iris_pca where class = 'Iris-setosa'"))
@@ -76,12 +112,5 @@ Then I plotted a 3d Principal Component Analysis of the dataset:
               (points3d pca3 #:sym 'dot #:size 20 #:color 3))
         #:altitude 25
         #:title "3D PCA of iris dataset")
-```
 
-and generates this plot:
-
-![pca image](/pca.png?raw=true "pca image")
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
+(disconnect conn)
