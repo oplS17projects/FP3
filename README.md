@@ -1,23 +1,72 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
-
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
-
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
 ## How to Prepare and Submit This Assignment
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
 1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## Csv-reading
+My name: Jonathan Murphy
+
+I wanted to play around with the CSV file library, I intend to use CSV files in the final project to read and store data.
+
+I borrowed the following code from the racket documents
+
+~~~~
+(define make-food-csv-reader
+  (make-csv-reader-maker
+   '((separator-chars            #\|)
+     (strip-leading-whitespace?  . #t)
+     (strip-trailing-whitespace? . #t))))
+
+(define next-row
+  (make-food-csv-reader (open-input-file file)))
+~~~~
+
+This let me work my way through the csv file. I found an example csv data [here](http://www.baseball-reference.com/managers/coxbo01.shtml) and included the file "baseballdatabank-master/core/Schools.csv" that I mainly used for data.
+
+I did 2 seperate function, the first being '(print-all)' which just printed out the raw data. All the output is in print-all.txt, excerpt here:
+
+~~~~
+(casierr,Sierra College,Rocklin,CA,USA)
+(casiski,College of the Siskiyous,Weed,CA,USA)
+(casjcco,San Jose City College,San Jose,CA,USA)
+(casjdjc,San Joaquin Delta College,Stockton,CA,USA)
+(caskyli,Skyline JC,San Bruno,CA,USA)
+(casmjco,Santa Monica College,Santa Monica,CA,USA)
+(casolan,Solano Community College,Fairfield,CA,USA)
+(casrjco,Santa Rosa Junior College,Santa Rosa,CA,USA)
+(caswjco,Southwestern College,Chula Vista,CA,USA)
+(catafjc,Taft College,Taft,CA,USA)
+(catawba,Catawba College,Salisbury,NC,USA)
+(catholic,Catholic University of America,Washington,DC,USA)
+(caventu,Ventura College,Ventura,CA,USA)
+(cawhjco,West Hills College,Coalinga,CA,USA)
+~~~~
+
+The second function I made, I named statement and had it print out a number of statements. I first make a helper function named 'nth-item' that takes in the csv object and an index number and returns the correct value.
+
+So with (nth-item '("adrianmi,Adrian College,Adrian,MI,USA") 3), you get "MI".
+
+So I wrote:
+
+
+~~~~
+(define (statement)
+  (next-row2)
+  (define var (next-row2))
+
+  (while (not (empty? var))
+         (begin (display "The school ")
+                (display (nth-item var 1))
+                (display " is located in ")
+                (display (nth-item var 2))
+                (display ", ")
+                (display (nth-item var 3))
+                (display " in ")
+                (display (nth-item var 4))
+                (display ".\n")
+                (set! var (next-row2)))))
+~~~~
 
 Write what you did!
 Remember that this report must include:
@@ -27,28 +76,8 @@ Remember that this report must include:
 * output from your code demonstrating what it produced
 * at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. 
+The narrative itself should be no longer than 350 words.
 
 You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
 
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
-
-
-http://www.baseball-reference.com/managers/coxbo01.shtml
+![Output](FP3.png?raw=true "test image")
