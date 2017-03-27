@@ -6,6 +6,8 @@ On this exploration I learned  about three different libraries  and how I can us
 
 2hdtp/universe 
 It handles the user input and base on the input it will play or stop a song.
+
+```racket
 ; handle input
 (define (handle-key n key)
   (cond
@@ -18,9 +20,11 @@ It handles the user input and base on the input it will play or stop a song.
     [else n]
     )
 )
-
+```
 The 2hdtp/image 
 Imported image by placing all of the argument images in a horizontal row, aligned along the centers of the world.
+
+```
 ; scene drawing
 (define (render y)
   (underlay/xy (overlay(beside
@@ -29,12 +33,13 @@ Imported image by placing all of the argument images in a horizontal row, aligne
                 (bitmap "down.png")
                 (bitmap "left.png"))
                 (bitmap "music-back.jpg")) 20 200 stop-text))
-
+```
 RSound
 The RSound library reads and writes WAV files only. Reads a WAV file from the given path, returns it as an rsound.
+```
 ; reads the music
 (define a (rs-read "/home/emmanuel/Desktop/Final-P/FP3/Beethoven_5th_Symphony.wav"))
-                
+```                
 ![test image](/World.png?raw=true "test image")
 
 They can be found 
