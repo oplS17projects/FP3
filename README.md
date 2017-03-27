@@ -9,7 +9,9 @@ values from 1 to 20 since we are using the standard d20 dice system.
 After the program generates the hash table. It displays it by creating a new frame
 and a canvas to draw on. It embeds the image of the character on the left side
 and calls a function to generate the strings of the character attributes as well
-as the associated stat value and draws it onto the canvas.
+as the associated stat value and draws it onto the canvas. Amazon image taken from:
+
+https://pixabay.com/en/amazone-woman-warrior-heroine-613708/
 
 ```
 (define stats (make-hash))
