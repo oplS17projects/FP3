@@ -89,6 +89,8 @@ With these keys defined, we can play them using RSound's "signal-play" function.
 ```
 The code above plays sounds that represent the piano keys C5 to C6, which is right in the middle of most traditional piano keyboards, and generally where most of the keys are pressed. The sleep and stop functions are required so that racket does not keep playing the key forever. The sleep function is called to allow the keys to play for one second each. The stop function is called to stop the key from playing and to allow the next key to play without any other noises. Right now, the audio produced sounds very artificial and robotic. Future work may include having played keys trail off slowly like they do with actual pianos when a key is pressed and held down. Future work will definitely include adding a scaling factor to the frequencies to allow the user to play keys from other parts of the keyboard. This part will be implemented with some sort of keyboard key-press detection.
 
+The piano key frequencies were taken from the wikipedia page about piano key frequencies at https://en.wikipedia.org/wiki/Piano_key_frequencies, and confirmed with http://www.phy.mtu.edu/~suits/notefreqs.html. 
+
 I would display a diagram of what my code produced; however, it's pretty difficult to see sound.
 
 There exists some sort of output when the racket file is run in DrRacket. This is a result of RSound's network function being called and given a sound wave frequency. It's not particularly useful in any way.
