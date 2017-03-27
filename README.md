@@ -46,7 +46,7 @@ This procedure results in this:
 
 ![net-url example](https://github.com/simthyrearch/FP3/blob/patch-1/net-url%20example.PNG)
 
-**Note that each element within the list of lists is a string. We would need to convert this into integers before copying it over to XLSX using the simple-xlsx library.
+** Note that each element within the list of lists is a string. We would need to convert this into integers before copying it over to XLSX using the simple-xlsx library.
 
 csv-reading is used to read the CSV files and produce a list of lists of strings of the stock data.
 
@@ -98,7 +98,7 @@ Result:
 
 ![xlsx-example](https://github.com/simthyrearch/FP3/blob/patch-1/xlsx-example.PNG)
 
-**Note that each "number" value in the cells are not actual formatted numbers. This has to do with how the data is being passed from CSV list to the xlsx file. 
+** Note that each "number" value in the cells are not actual formatted numbers. This has to do with how the data is being passed from CSV list to the xlsx file. 
 
 Currently, I've written a function to convert the necessary data elements from string to number using:
 ```racket
@@ -148,7 +148,7 @@ This function produces a list where the first element is a string corresponding 
 However, I am unable to copy the list which has the correct data formats into the xlsx file because the loop is scoped in the for loop. It should definitely be doable because there is a procedure (set!) which assigns a new value to an existing variable. I've tried setting temp to l, which is scoped outside of the for loop. The current thinking right now is to use a series of accumulate with lambdas OR a set of nested for loops to work around this problem.
 
 
-# Next Steps
+## Next Steps
 
 1. The next steps for the project would be to solve the problem of passing in data formatted as strings into an xlsx file. This is crucial because otherwise we can't manipulate the data into graphs and charts, the core concept of the project.
 2. Develop interface for users to select the company, stock performance range, and what type of visualization they want. 
