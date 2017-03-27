@@ -1,3 +1,7 @@
+(require net/head)
+
+Hussain Dar:
+
 This is my first time working with parsing files from a site and I had alot of difficulty with several libaries but I decided to go with (require net/head). This libarary essentially parses a string and allows you to extract info from it. I thought this would be helpful because in my project I will be parsing from a certain stock website with all the companies stock info such as Google or Microsoft. This code is a start but I am still in the process of figuring out how to extract certain information from a stock website. In my code I just extracted the name, address of the string I generated.
 
 Sample Output:
