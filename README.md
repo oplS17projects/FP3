@@ -4,6 +4,8 @@ My name: Mohammed Nayeem
 
 In this exploration I chose to look at the GUI library. At first I thought the library was insanely packed with content and couldn't really understand it too much but I continued with it. From the GUI library I went with a canvas. This allowed me to draw within the canvas in a certain order. I was playing around with the code and tried to add a text field in just by playing around with it and it somehow was creating the text field over and over again. I still haven't figured out how that happened but I believe this library constantly updates the canvas. This could be why there a lot of text fields when I messing around with code.
 
+This will potentially be our gui for the final project. Unless we end up finding a better way of doing this.
+
 In the beginning of the code I create the frame: 
 ```
 (define frame (new frame%
