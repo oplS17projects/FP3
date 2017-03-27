@@ -17,5 +17,5 @@ The string to find the regex starting point:
 ```
 This is matched twice before I start regexp-matching thumbnails, titles, and view counts.
 
-![screenshot](/screenshot.jpeg?raw=true "screenshot")
+![screenshot](/screenshot.jpg?raw=true "screenshot")
 - YouTube Weekly trending videos
