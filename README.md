@@ -1,51 +1,97 @@
 # FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## My Library: RSound
+My name: Andrew Long
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+I will be using the RSound library for generating various sounds needed to simulate the sounds a piano keyboard will make. This library is located at https://docs.racket-lang.org/rsound/index.html. 
 
-The report template is below, beginning with "Library Name Here."
+I started off testing this library by making definitions for piano keys ranging from A4 to C6. These definitions need to be coded in because each key has its own frequency. The frequencies are represented using RSound's sine-wave function, which is a signal that represents a sine wave of the given frequency at a default sample rate of amplitude 1.0. Below is the code for the representation of the piano keys A4-C6.
+```
+#lang racket
+(require rsound)
 
-## How to Prepare and Submit This Assignment
+(define A4-key
+  (network ()
+           [A4 <= sine-wave 440]
+           [out = A4]))
+(define B4-key
+  (network ()
+           [B4 <= sine-wave 493.883]
+           [out = B4]))
+(define C5-key
+  (network ()
+           [C5 <= sine-wave 523.251]
+           [out = C5]))
+(define D5-key
+  (network ()
+           [D5 <= sine-wave 587.330]
+           [out = D5]))
+(define E5-key
+  (network ()
+           [E5 <= sine-wave 659.225]
+           [out = E5]))
+(define F5-key
+  (network ()
+           [F5 <= sine-wave 698.456]
+           [out = F5]))
+(define G5-key
+  (network ()
+           [G5 <= sine-wave 783.991]
+           [out = G5]))
+(define A5-key
+  (network ()
+           [A5 <= sine-wave 880]
+           [out = A5]))
+(define B5-key
+  (network ()
+           [B5 <= sine-wave 987.767]
+           [out = B5]))
+(define C6-key
+  (network ()
+           [C6 <= sine-wave 1046.50]
+           [out = C6]))
+```
+With these keys defined, we can play them using RSound's "signal-play" function.
+```
+#lang racket
+(require rsound)
+(signal-play C5-key)
+(sleep 1)
+(stop)
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+(signal-play D5-key)
+(sleep 1)
+(stop)
 
-## Library Name Here
-My name: **put your real name here**
+(signal-play E5-key)
+(sleep 1)
+(stop)
 
-Write what you did!
-Remember that this report must include:
+(signal-play F5-key)
+(sleep 1)
+(stop)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+(signal-play G5-key)
+(sleep 1)
+(stop)
 
-The narrative itself should be no longer than 350 words. 
+(signal-play A5-key)
+(sleep 1)
+(stop)
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+(signal-play B5-key)
+(sleep 1)
+(stop)
 
-![test image](/testimage.png?raw=true "test image")
+(signal-play C6-key)
+(sleep 1)
+(stop)
+```
+The code above plays sounds that represent the piano keys C5 to C6, which is right in the middle of most traditional piano keyboards, and generally where most of the keys are pressed. The sleep and stop functions are required so that racket does not keep playing the key forever. The sleep function is called to allow the keys to play for one second each. The stop function is called to stop the key from playing and to allow the next key to play without any other noises. Right now, the audio produced sounds very artificial and robotic. Future work may include having played keys trail off slowly like they do with actual pianos when a key is pressed and held down. Future work will definitely include adding a scaling factor to the frequencies to allow the user to play keys from other parts of the keyboard. This part will be implemented with some sort of keyboard key-press detection.
 
-You must provide credit to the source for any borrowed images.
+The piano key frequencies were taken from the wikipedia page about piano key frequencies at https://en.wikipedia.org/wiki/Piano_key_frequencies, and confirmed with http://www.phy.mtu.edu/~suits/notefreqs.html. 
 
-Code should be delivered in two ways:
+I would display a diagram of what my code produced; however, it's pretty difficult to see sound.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+There exists some sort of output when the racket file is run in DrRacket. This is a result of RSound's network function being called and given a sound wave frequency. It's not particularly useful in any way.
+![output](exploration_2_output.png)
