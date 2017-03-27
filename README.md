@@ -1,44 +1,54 @@
 # FP3: Final Project Assignment 3: Exploration 2
 Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## Library Name Here : RSound
+My name: Marittya Keu
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+For FP3, I choose to use the RSound library. Being a hip-hop head, it's only natural I choose to use a library that deals with the creation and manipulation of sounds. This is an appropriate library to use because my partner and I chose to do a project to create a game similar to Guitar Hero. For this portion of the project, I downloaded a few free .WAV files from the following websites.....
 
-The report template is below, beginning with "Library Name Here."
+http://www.brainybetty.com/soundsforpowerpoint2.htm
 
-## How to Prepare and Submit This Assignment
+http://hiphopmakers.com/free-808-drum-kit-227-samples
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+I took these .wav files and created them into an RSound and was then able to drive them around.....
 
-## Library Name Here
-My name: **put your real name here**
+```
+(define sound1 (rs-read "/home/mike/Desktop/FP/ShakeYourBootay.wav"))
+(define sound2 (rs-read "/home/mike/Desktop/FP/UpbeatFunk.wav"))
 
-Write what you did!
-Remember that this report must include:
+;creates and RSound which plays three different sound at the same time
+(define sound3 (rs-overlay* (list sound1 sound2 (rs-read "/home/mike/Desktop/FP/808/clap (10).wav"))))
+```
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+The code below created a function where you are allowed to play several different sounds depending on what you type as a parameter.
+```
+(define (play-sound sound)
+  (if(null? sound)
+     "Error: Must play a valid RSound"
+     (cond
+       ((eq? sound 'sound1) (play sound1))
+       ((eq? sound 'sound2) (play sound2))
+       ((eq? sound 'sound3) (play sound3)))))
+```
 
-The narrative itself should be no longer than 350 words. 
+RSound allows you to do many different neat things. One of the feature is to allow you to record a sound using the ```record-sound```  function. It takes as a parameter the length of a frame of an RSound and plays it back that length
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+```
+;plays sound1, records it, then plays the sound again 
+(define (sound4)
+  (play sound1)
+  (play (record-sound (rs-frames sound1))))
+```
 
-![test image](/testimage.png?raw=true "test image")
+The RSound library has many useful functionalies. With it, my partner and I plan to use and manipulate the functions to create a game similar to Guitar Hero. 
 
-You must provide credit to the source for any borrowed images.
 
-Code should be delivered in two ways:
+--------------------------------------------OUTPUT IMAGE----------------------------------------------
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+
+![alt tag](https://github.com/MarittyaKeu/FP3/blob/master/screenshotFP3.png)
+
+
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
