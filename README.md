@@ -3,7 +3,7 @@ My name: Brett Lundy
 
 What I did:
 
-For this assignment, I used the  2htdp/image library to test out the differnent kind of images I could  personally make. I really enjoyed this library, because unlike the turtles library I could draw and fill images, and there were many predefined functions that allowed me to easily draw things that i couldn't in the turtles library. I was also able to use some methods we learned in class, like making a list of objects and I managed to use foldl as well:
+For this assignment, I used the  2htdp/image library to test out the differnent kind of images I could  personally make. I really enjoyed this library, because unlike the turtles library I could draw and fill images, and there were many predefined functions that allowed me to easily draw things that I couldn't in the turtles library. I was also able to use some methods we learned in class, like making a list of objects and I managed to use foldl on a list of shrinking circles to make a target:
 ```racket
 (define (make-shape-list shape rad md col)
   (if (<= rad 0)
@@ -22,7 +22,7 @@ For this assignment, I used the  2htdp/image library to test out the differnent 
 ```
 ![test image1](/test-save2?raw=true "Target")
 
-After I was done applying what we've done in class to my library I tryed using some of the predefined functions in my library to make the racket logo. I tried a few different things but ended up drawing the logo like this:
+After I was done applying what we've done in class to my library I tried using some of the predefined functions in my library to make the racket logo. I tried a few different things but ended up drawing the logo by making two rectangles and offseting the second rectangle to the edge of the first, saving that as a image. tTen drawing a unfilled circle with a curved line and a diagonal line, and overlaying them ontop of one another and saving that as an image. and lastly overlaying the cirle image on the square image:
 ```racket
 (define background1
   (rectangle 150 300 "solid" "red"))
@@ -47,7 +47,7 @@ After I was done applying what we've done in class to my library I tryed using s
 ```
 ![test image2](/test-save?raw=true "Racket logo")
 
-Even though it was redundant I made my own little save function, mostly because the already defined save function allows one to give a high tand width and i wanted to stay away from that:
+Even though it was redundant I made my own little save function, mostly because the already defined save function allows one to give a height and width and I wanted to stay away from that:
 ```racket
 (define (save-the-image image filename)
   (save-image image filename))
