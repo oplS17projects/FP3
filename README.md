@@ -16,10 +16,32 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## 2htdp/universe
+My name: Jacob Phillips
 
-Write what you did!
+I played around with the library for a while. I looked around the internet to teach myself how to use it. In the ended up with something similar to an example I found that uses big-bang to place a dot at a spot of your choosing.
+`
+#lang racket
+
+(require 2htdp/universe)
+(require 2htdp/image)
+
+(define BACKGROUND (empty-scene 100 100))
+(define DOT (circle 10 "solid" "green"))
+ 
+(define (main y)
+  (big-bang y
+    [on-tick sub1]
+    [stop-when zero?]
+    [to-draw place-dot-at]
+    [on-key stop]))
+ 
+(define (place-dot-at x y)
+  (place-image DOT x y BACKGROUND))
+ 
+(define (stop y ke)
+  0)
+`
 Remember that this report must include:
 
 * a narrative of what you did
