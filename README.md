@@ -10,3 +10,4 @@ I used the racket/tcp library to connect to the uml cs server. I also used some 
 This code segment creates a list of two objects called ports. The first object is the input port and the second is the output port used to interface with the cs server.
 
 ![output](/pic.png?raw=true "output")
+This image shows the output of the given code when loaded into the buffer.
