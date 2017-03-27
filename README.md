@@ -39,6 +39,11 @@ I did 2 seperate function, the first being '(print-all)' which just printed out 
 
 The second function I made, I named statement and had it print out a number of statements. I first make a helper function named 'nth-item' that takes in the csv object and an index number and returns the correct value.
 
+~~~~
+(define (nth-item csv2list num)
+  (list-ref (car (csv->list (car csv2list))) num))
+~~~~
+
 So with (nth-item '("adrianmi,Adrian College,Adrian,MI,USA") 3), you get "MI".
 
 So I wrote:
