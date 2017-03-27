@@ -1,44 +1,31 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## VLC
+My name: **RYAN DELOSH**
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+I set out to explore a library that would be able to play mp3 files once they were found 
+within a given folder. After searching for a good amount of time and trying a few things out
+with multiple libraries, I can across the vlc library. It is not ideal for what I want to do
+but, it was the only thing that I found that was able to play mp3 files.
+So I proceeded to test it out. first by starting vlc, adding my song to the queue and then
+playing the song.
+```
+(require vlc)
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+(start-vlc)
 
-The report template is below, beginning with "Library Name Here."
+(vlc-enqueue "/Users/liqueseous/ownCloud/Documents/Spring2017/OPL/FP3/Hypnotic.mp3")
 
-## How to Prepare and Submit This Assignment
+(vlc-loop #t)
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+(vlc-play)
+```
+After that I tried some commands out like `(vlc-stop)` , `(vlc-pause)`, and `(vlc-is-playing)`
 
-## Library Name Here
-My name: **put your real name here**
+In the end I was successfully able to play and manipulate through a mp3 file.
 
-Write what you did!
-Remember that this report must include:
+![test image](/ScreenShot.png?raw=true "test image")
+![vlc image](/ScreenShot2.png?raw=true "vlc image")
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
