@@ -1,51 +1,59 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## My Library: Plot: JSON
+My name: Brandon Karl
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+Serey and I intend to use API data in our project so I thought it would be useful to learn how to parse this JSON data in Racket. First I learned about what JSON was and made a sample JSON file in my program that keeps track of a few things Serey and I like. For example
+```
+(define favorites2 (with-input-from-string
+   "{
+    \"Brandon\":[{
+            \"Animal\": \"Elephant\",
+            \"Color\": \"Blue\",
+            \"Food\": \"Pizza\"
+    }],
+    \"Serey\":[{
+            \"Animal\": \"Sloth\",
+            \"Color\": \"Red\",
+            \"Food\": \"Hamburger\"
+    }]
+    }"
+    (λ () (read-json))))
+```
+This code takes a JSON file, in this case a string and converts it into a format where the information in here can be looked up. Running this defines the favorites2 to
+```
+'#hasheq((Serey
+          .
+          (#hasheq((Food . "Hamburger") (Animal . "Sloth") (Color . "Red"))))
+         (Brandon
+          .
+          (#hasheq((Food . "Pizza") (Animal . "Elephant") (Color . "Blue")))))
+```
+I then made some helper functions to get the data by entering one of the names 
+```
+;takes a kid by name, returns favorite animal
+(define (getanimal kid)
+  (hash-ref (car (hash-ref favorites2 kid)) 'Animal))
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+;takes a kid by name, returns favorite animal
+(define (getcolor kid)
+  (hash-ref (car (hash-ref favorites2 kid)) 'Color))
 
-The report template is below, beginning with "Library Name Here."
+;takes a kid by name, returns favorite animal
+(define (getfood kid)
+  (hash-ref (car (hash-ref favorites2 kid)) 'Food))
+```
+The inner hash-ref returns a list where the first element is all the data for the kid you are looking at is stored, the second element is empty, we we just want the car of the list. The outer href-then takes the data for whichever kid was entered and looks for the right data, either Animal, Color or Food.
 
-## How to Prepare and Submit This Assignment
+Lastly I made a handly little function that takes 2 kids and compared their favorite things. I looked up how to print to the screen and it was just like in c.
+```
+;takes 2 kids by name and compares their favorite things
+(define (comparekids kid1 kid2)
+  (printf "Brandon likes ~s's, the color ~s and ~s while Serey likes ~s's, the color ~s and ~s."
+          (getanimal kid1) (getcolor kid1) (getfood kid1)
+          (getanimal kid2) (getcolor kid2) (getfood kid2))
+  )
+```
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+Here is some example output:
 
-## Library Name Here
-My name: **put your real name here**
+![output](/Plotting2graphs.png?raw=true "Plotting 2 Graphs")
 
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
