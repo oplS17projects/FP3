@@ -3,12 +3,13 @@ My name: Josh Everett
 ## Narrative
 
 This exploration is useful in the scope of the underlying project and our expected implementation.
-The goal is to create a procedure ** doctorScantron ** with three arguments: a _string_ (ipv4 address of target machine),
+The goal is to create a procedure **doctorScantron** with three arguments: a _string_ (ipv4 address of target machine),
 a _list of one or two numbers_(range of ports), and _a list of one or two characters_(tcp or udp scan).
-The ** doctorScantron ** calls a constructor for our **_machine_** object to return a dispatch procedure,
-which will allow for message passing similar to ** create account ** from the bank account problemset.
+The **doctorScantron** calls a constructor for our **_machine_** object to return a dispatch procedure,
+which will allow for message passing similar to **create account** from the bank account problemset.
 Ideally we will allow for constructor to take an entire subnet or range of addresses using CIDR notation (ie "192.168.0.1/24") and create a list or structure which contains **_machine_** objects.
 With a single **_machine_** we pass it a message which will map and filter across the list of open ports the **_machine_** object contains within it's closure. Common ports should be matched to their services, but there will be no version detection or dynamic service detection.
+![concept drawing](/IMG_0667.jpg?raw=true "concept")
 
 With multiple **_machines_** we can query which ip addresses within the range have open port ?? using similar procedures.
 
