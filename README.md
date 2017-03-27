@@ -64,7 +64,7 @@ And then graphed them similarly to above, but passing the car information to the
 
 Which produces:
 
-![car2](/car2.png?raw=true "car2")
+![car2](/car3.png?raw=true "car3")
 
 
 Finally, I created a bar graph, which could be used to portray different types of information:
@@ -84,7 +84,7 @@ Finally, I created a bar graph, which could be used to portray different types o
 
 Which produces:
 
-![car3](/car3.png?raw=true "car3")
+![car3](/car2.png?raw=true "car2")
 
 
 
