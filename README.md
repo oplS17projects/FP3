@@ -19,6 +19,8 @@ I am using FP3 to tackle the first part of the project (pulling historical stock
 9. [MSN]
 10. [FinData]
 
+
+## Implementations
 The libraries used are:
 
 ```racket
@@ -41,9 +43,10 @@ net/url is used to pull CSV files from internet sources.
 
 This procedure results in this:
 
+
 ![net-url example](https://github.com/simthyrearch/FP3/blob/patch-1/net-url%20example.PNG)
 
-*Note that each element within the list of lists is a string. We would need to convert this into integers before copying it over to XLSX using the simple-xlsx library.
+**Note that each element within the list of lists is a string. We would need to convert this into integers before copying it over to XLSX using the simple-xlsx library.
 
 csv-reading is used to read the CSV files and produce a list of lists of strings of the stock data.
 
@@ -62,6 +65,7 @@ csv-reading is used to read the CSV files and produce a list of lists of strings
 ```
 
 Example:
+
 ![next-row example](https://github.com/simthyrearch/FP3/blob/patch-1/next-row%20example.PNG)
 
 ```racket
@@ -72,6 +76,7 @@ Example:
 ```
 
 Example:
+
 ![csv-list example](https://github.com/simthyrearch/FP3/blob/patch-1/csv-list%20example.PNG)
 
 simple-xlsx is used to write the CSV data into a workable Excel format to be manipulated into different charts and graphics.
@@ -90,9 +95,10 @@ simple-xlsx is used to write the CSV data into a workable Excel format to be man
 ```
 
 Result:
+
 ![xlsx-example](https://github.com/simthyrearch/FP3/blob/patch-1/xlsx-example.PNG)
 
-Note that each "number" value in the cells are not actual formatted numbers. This has to do with how the data is being passed from CSV list to the xlsx file. 
+**Note that each "number" value in the cells are not actual formatted numbers. This has to do with how the data is being passed from CSV list to the xlsx file. 
 
 Currently, I've written a function to convert the necessary data elements from string to number using:
 ```racket
@@ -140,6 +146,7 @@ This function produces a list where the first element is a string corresponding 
 ```
 
 However, I am unable to copy the list which has the correct data formats into the xlsx file because the loop is scoped in the for loop. It should definitely be doable because there is a procedure (set!) which assigns a new value to an existing variable. I've tried setting temp to l, which is scoped outside of the for loop. The current thinking right now is to use a series of accumulate with lambdas OR a set of nested for loops to work around this problem.
+
 
 # Next Steps
 
