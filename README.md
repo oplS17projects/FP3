@@ -52,7 +52,7 @@ bootsraps built in styling.
 
 #### original list and filtered list definitions
 
-```
+```racket
 
 (define x (list "dog" "cat" "wolf" "horse" "cow" "bear"))
 (define y (filter (lambda (x) (> (string-length x) 3)) x))
@@ -61,7 +61,7 @@ bootsraps built in styling.
 
 #### creates a single x-expression representing ul and li html elements given many x-expressions (a list)
 
-```
+```racket
 
 (define (render-as-itemized-list fragments)
   `(ul ,@(map render-as-item fragments)))
