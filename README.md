@@ -45,7 +45,7 @@ After I was done applying what we've done in class to my library I tryed using s
 (define racket-logo
   (overlay circle-logo real-background))
 ```
-![test image2](/test-save.jpg?raw=true "Racket logo")
+![test image2](/test-save?raw=true "Racket logo")
 
 Even though it was redundant I made my own little save function, mostly because the already defined save function allows one to give a high tand width and i wanted to stay away from that:
 ```racket
