@@ -28,3 +28,9 @@ I began testing the library's functionality by creating a sprite database and po
 (new-add-sprite!/file test-db 'test-sprite1 "Desktop\\OPL Project\\Graphics Exploration\\dolphin.bmp")
 (new-add-sprite!/file test-db 'test-sprite2 "Desktop\\OPL Project\\Graphics Exploration\\ball.bmp")
 ```
+
+# Difficulties
+I was unable to produce a draw window with the code I tried. I looked up a few examples online, but most of them used the racket/draw library for that. I tried several times to make a window appear, but it just wasn't happening.
+
+Anyways, here's the dolphin that was *supposed* to appear
+![test image](/dolphin.bmp?raw=true "Dolphin")
