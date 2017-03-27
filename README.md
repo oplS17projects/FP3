@@ -20,7 +20,7 @@ For this assignment, I used the  2htdp/image library to test out the differnent 
          (circle 0 "outline" "red")
          shape-list1))
 ```
-![test image](/test-save?raw=true "Target")
+![test image1](/test-save2?raw=true "Target")
 
 After I was done applying what we've done in class to my library I tryed using some of the predefined functions in my library to make the racket logo. I tried a few different things but ended up drawing the logo like this:
 ```racket
@@ -45,7 +45,7 @@ After I was done applying what we've done in class to my library I tryed using s
 (define racket-logo
   (overlay circle-logo real-background))
 ```
-![test image](/square_image.jpg?raw=true "Square Image")
+![test image2](/test-save.jpg?raw=true "Racket logo")
 
 Even though it was redundant I made my own little save function, mostly because the already defined save function allows one to give a high tand width and i wanted to stay away from that:
 ```racket
