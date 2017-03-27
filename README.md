@@ -1,51 +1,61 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+# Final Project Assignment 3: Exploration (FP3)
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+## My Library: opengl
+My name: Christopher Munroe
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+(I was struggling and I figured this is exploration so I found gl-frame.rkt online to get through some nitty gritty stuff and that is NOT my code)
 
-The report template is below, beginning with "Library Name Here."
+(main.rkt IS my code.)
 
-## How to Prepare and Submit This Assignment
+With the help of some example code, I made a colored cube that you can rotate with WASD. Once it is configured in the opengl init function, you can render 3d shapes by drawing many triangles (or quads in my case) within an opengl draw function.
+
+Within my on-draw function ```draw-opengl``` firstly we shift the origin of our drawing so it is infront of the camera, rather than inside of it by calling: 
+``(glTranslated 0 0 -5)`` 
+
+Next, we rotate our environment according to some global variables (which are altered by WASD keystrokes): 
+
+```
+(glRotated *xrot* 1 0 0)
+(glRotated *yrot* 0 1 0)
+(glRotated *zrot* 0 0 1)
+``` 
+ 
+Then we start drawing the sides of the cube, each side is defined like this: 
+```
+(glBegin GL_QUADS)
+          (glColor3f 0 1 0)     ; specified the color with RGB, where each value's range is 0->1
+          (glVertex3f  1 1 -1)  ; which makes this color green
+          (glVertex3f -1 1 -1)
+          (glVertex3f -1 1  1)  ; Then, because we are defining within a GL_QUAD, 
+          (glVertex3f  1 1  1)  ; we specify 4 vertices to make-up a rectangle.
+          ...
+```
+
+The rotation variables are mapped to the keystrokes here: 
+```
+(add-key-mapping #\w (lambda () (set! *xrot* (+ *xrot* 5))))
+(add-key-mapping #\s (lambda () (set! *xrot* (- *xrot* 5))))
+(add-key-mapping #\a (lambda () (set! *yrot* (+ *yrot* 5))))
+(add-key-mapping #\d (lambda () (set! *yrot* (- *yrot* 5))))
+``` 
+
+The example file that I have used from an online source (``gl-frame.rkt``) initialized the 
+canvas to draw on and provided the ``add-key-mapping`` function. I would have liked to do this file myself, 
+but I ran out of time and compromised.
+
+
+![Image of simulation](/img.png?raw=true)
+
+Ask questions publicly in the email group.
+
+## How to Prepare and Submit this assignment
 
 1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
+  2. (This assignment is just one README.md file, so you can edit it right in github)
+1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
+1. Add your racket file to the repository. 
+1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
 <!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
 [schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
