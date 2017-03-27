@@ -55,7 +55,7 @@ and then plots three separate histograms of for each class:
 
 ![histogram image](/histogram.png?raw=true "histogram image")
 
-Then I plotted a 3d Principle Component Analysis of the dataset:
+Then I plotted a 3d Principal Component Analysis of the dataset:
 
 ```racket
 (define pca1 (query-rows
