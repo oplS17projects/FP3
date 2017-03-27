@@ -16,29 +16,33 @@ The report template is below, beginning with "Library Name Here."
 1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Library Name Here
-My name: **put your real name here**
+## VLC
+My name: **RYAN DELOSH**
 
-Write what you did!
-Remember that this report must include:
+I set out to explore a library that would be able to play mp3 files once they were found 
+within a given folder. After searching for a good amount of time and trying a few things out
+with multiple libraries, I can across the vlc library. It is not ideal for what I want to do
+but, it was the only thing that I found that was able to play mp3 files.
+So I proceeded to test it out. first by starting vlc, adding my song to the queue and then
+playing the song.
+```
+(require vlc)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+(start-vlc)
 
-The narrative itself should be no longer than 350 words. 
+(vlc-enqueue "/Users/liqueseous/ownCloud/Documents/Spring2017/OPL/FP3/Hypnotic.mp3")
 
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+(vlc-loop #t)
 
-![test image](/testimage.png?raw=true "test image")
+(vlc-play)
+```
+After that I tried some commands out like `(vlc-stop)` , `(vlc-pause)`, and `(vlc-is-playing)`
 
-You must provide credit to the source for any borrowed images.
+In the end I was successfully able to play and manipulate through a mp3 file.
 
-Code should be delivered in two ways:
+![test image](/ScreenShot.png?raw=true "test image")
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
