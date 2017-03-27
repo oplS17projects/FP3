@@ -176,3 +176,48 @@ This plays a really disgusting sound of these two sine waves added together. It'
 ```
 
 This makes a weird alarm sound. It has 2 lfos that affect the frequencies of signals a and c, with the one affecting the sawtooth being much faster.
+
+```racket
+
+(play (piano-tone 60))
+(sleep .2)
+(play (piano-tone 62))
+(sleep .2)
+(play (piano-tone 64))
+(sleep .2)
+(play (piano-tone 65))
+(sleep .2)
+(play (piano-tone 67))
+(sleep .2)
+(play (piano-tone 69))
+(sleep .2)
+(play (piano-tone 71))
+(sleep .2)
+(play (piano-tone 72))
+(sleep 1)
+(play (piano-tone 72))
+(sleep .2)
+(play (piano-tone 71))
+(sleep .2)
+(play (piano-tone 69))
+(sleep .2)
+(play (piano-tone 67))
+(sleep .2)
+(play (piano-tone 65))
+(sleep .2)
+(play (piano-tone 64))
+(sleep .2)
+(play (piano-tone 62))
+(sleep .2)
+(play (piano-tone 60))
+```
+
+```piano-tone``` takes a number, and that number is the midi id of a note. This plays a C major scale up and down. Weird thing is, it plays it faster going down. I think it might take longer going up because it has to load the sample, but I'm not sure.
+
+Something to note here: syntax uses ```play``` instead of ```signal-play```. This is because the ```piano-tone``` is an rsound. Signals last until stopped, rsounds do not.
+
+## Final Thoughts and Project Idea
+
+One idea here is that I can make a list of numbers using ```build-list```, then map ```piano-tone``` to that to get a list of rsounds I can play. I can do that in recursive form adding in the sleep command as well, or perhaps there is a built-in RSound way to achieve that effect.
+
+This is one of the ideas that we have for the final project - some kind of procedural sound generation. Using samples and midi notes seems like a good way to start.
