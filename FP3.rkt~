@@ -1,0 +1,22 @@
+#lang racket
+
+(require rsound)
+
+;;It currently has lots of restrictions (it insists on 16-bit PCM encoding, for instance).
+
+;(rs-read path) 
+(define play (rs-read "/Users/Chhayhout/Desktop/Super_Mario_Bros.wav"))
+
+(define (play-forever sound)
+  ;(make-pstream [#:buffer-time buffer-time]) → pstream?
+  (define play (make-pstream))
+  ;(rs-frames sound) → nonnegative-integer?
+  (define length (rs-frames sound))
+  (let looping ((time 1))
+    ;(pstream-queue pstream rsound frames) → pstream?
+    (pstream-queue play sound (+ time 44100))
+    (define next (+ time length))
+    ;(pstream-current-frame pstream) → natural?
+    (looping next)))
+
+(play-forever play)
