@@ -29,7 +29,7 @@ creating animation
 ```
 This will product an animation that move timber-man-left from left to right
 
-![p3.png](/p3.png) ![p4.png](/p4.png)! [p5.png](/p5.png)
+![p3.png](/p3.png) ![p4.png](/p4.png) ![p5.png](/p5.png)
 
 I download all the asset from this [site](http://www.emanueleferonato.com/2015/02/16/create-an-html5-game-like-timberman-in-a-matter-of-minutes-with-mightyeditor/)
 
