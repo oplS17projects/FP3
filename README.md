@@ -44,7 +44,7 @@ The last line:
 This shows everything :D
 
 This is the final result:
-![GitHub Image](pacman.png?raw=true "Pacman")
+![GitHub Image](rackman.png?raw=true "Pacman")
 
 
 
