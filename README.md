@@ -1,9 +1,6 @@
 ## rsound
 My name: Matthew DiBello
 
-Write what you did!
-Remember that this report must include:
-
 Since our project is a sheet music editor that can play some of the sheet
 music made int he application, we need to be able to deal with sounds. So
 for this exploration I explored rsound, which deals with playing sounds in
