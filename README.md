@@ -55,5 +55,5 @@ Lastly I made a handly little function that takes 2 kids and compared their favo
 
 Here is some example output:
 
-![output](/Plotting2graphs.png?raw=true "Plotting 2 Graphs")
+![output](/KidComparison.png?raw=true "Comparing 2 kids based on their JSON data.")
 
