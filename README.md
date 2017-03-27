@@ -1,23 +1,7 @@
 # FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
-
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
-
-The report template is below, beginning with "Library Name Here."
-
-## How to Prepare and Submit This Assignment
-
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
+## RtMidi
+My name: Samuel Toups
 
 Write what you did!
 Remember that this report must include:
@@ -40,12 +24,6 @@ Code should be delivered in two ways:
 1. Full files should be added to your version of this repository.
 1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
-<!-- Links -->
-[FP1]: https://github.com/oplS17projects/FP1
-[schedule]: https://github.com/oplS17projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+
+
+I have spent a good while trying to get the RtMidi library working. The RtMidi library is a wrapper around a c++ library of the same name for interracting with midi devices. Both the c++ library and the wrapper compile just fine, and I have all the shared object files and dev packages I think I need, but DrRacket keeps giving me messages about undefined symbols, which makes me think that I need to install packages in DrRacket for the underlying system libraries, but my google-fu has failed me, so I don't really know. I can't even get the example code to run in DrRacket.
