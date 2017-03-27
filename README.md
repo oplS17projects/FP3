@@ -9,28 +9,28 @@ The current project concept is to make a service which will pull stock market pe
 I am using FP3 to tackle the first part of the project (pulling historical stock data) and also finding different sources for stock performances. 
 
 ## Historical Stock Quotes Data Sources
-1. [Financial Content](https://markets.chron.com/chron/?Page=HISTORICAL&Ticker=GOOG)
-2. [Yahoo](https://finance.yahoo.com/q/hp?s=GOOG)
-3. [Google](https://www.google.com/finance/historical?q=GOOG)
-4. [Investopedia](https://simulator.investopedia.com/stocks/goog/historical)
-5. [Quotemedia](https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/)
-6. [Dukascopy](https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/)
-7. [Kumo swep](https://kumo.swcp.com/stocks/)
-8. [AOL](https://finance.aol.com/quotes/google-inc/goog/nas/historical-prices)
-9. [MSN](https://moneycentral.msn.com/investor/charts/chartdl.aspx?Symbol=GOOG)
-10. [FinData](https://www.findata.co.nz/Markets/StockQuote/NASDAQ/goog.htm)
+1. [Financial Content]: https://markets.chron.com/chron/?Page=HISTORICAL&Ticker=GOOG
+2. [Yahoo]: https://finance.yahoo.com/q/hp?s=GOOG
+3. [Google]: https://www.google.com/finance/historical?q=GOOG
+4. [Investopedia]: https://simulator.investopedia.com/stocks/goog/historical
+5. [Quotemedia]: https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/
+6. [Dukascopy]: https://www.dukascopy.com/swiss/english/data_feed/csv_data_export/
+7. [Kumo swep]: https://kumo.swcp.com/stocks/
+8. [AOL]: https://finance.aol.com/quotes/google-inc/goog/nas/historical-prices
+9. [MSN]: https://moneycentral.msn.com/investor/charts/chartdl.aspx?Symbol=GOOG
+10. [FinData]: https://www.findata.co.nz/Markets/StockQuote/NASDAQ/goog.htm
 
 The libraries used are:
 
-'''racket
+```racket
   (require net/url)
   (require csv-reading)
   (require simple-xlsx)
-'''
+```
 
 net/url is used to pull CSV files from internet sources.
 
-'''racket
+```racket
 
 ;; Procedure call to pull CSV file from a user provided URL.
 ;; Extracts the file and puts the data into a list of lists
@@ -38,17 +38,17 @@ net/url is used to pull CSV files from internet sources.
   ((compose csv->list get-pure-port string->url)
   "https://ichart.finance.yahoo.com/table.csv?d=6&e=1&f=2016&g=d&a=7&b=19&c=2004&ignore=.csv&s=GOOG")
   
-'''
+```
 
 This procedure results in this:
 
-![net-url example]
+![net-url example](https://github.com/simthyrearch/FP3/blob/patch-1/net-url%20example.PNG)
 
 *Note that each element within the list of lists is a string. We would need to convert this into integers before copying it over to XLSX using the simple-xlsx library.
 
 csv-reading is used to read the CSV files and produce a list of lists of strings of the stock data.
 
-'''racket
+```racket
 
   ;; Construct a CSV reader on the input
   ;; Allows for traversal row by row of the csv file
@@ -60,24 +60,24 @@ csv-reading is used to read the CSV files and produce a list of lists of strings
      '((separator-chars            #\, )
        (strip-leading-whitespace?  .1 #t)
        (strip-trailing-whitespace? .1 #t))))
-'''
+```
 
 Example:
-![net-url example]
+![next-row example](https://github.com/simthyrearch/FP3/blob/patch-1/next-row%20example.PNG)
 
-'''racket
+```racket
 
   ;; Allows list creation of csv file directly without having to pull from URL
 
   (csv->list (open-input-file "goog.csv"))
-'''
+```
 
 Example:
-![csv-list example]
+![csv-list example](https://github.com/simthyrearch/FP3/blob/patch-1/csv-list%20example.PNG)
 
 simple-xlsx is used to write the CSV data into a workable Excel format to be manipulated into different charts and graphics.
 
-'''racket
+```racket
   ;; Uses simple-xlsx write function to write the value from CSV format to XLSX format.
   ;; the cells #:sheet_data will be in the format of whatever the list is containing, i.e. if it is just from
   ;; a CSV file, then the cells will be formatted in strings
@@ -88,15 +88,15 @@ simple-xlsx is used to write the CSV data into a workable Excel format to be man
          #:sheet_data SM) ;; SM is the list being written into XLSX format
 
    (write-xlsx-file xlsx "test.xlsx"))
-'''
+```
 
 Result:
-![xlsx-example]
+![xlsx-example](https://github.com/simthyrearch/FP3/blob/patch-1/xlsx-example.PNG)
 
 Note that each "number" value in the cells are not actual formatted numbers. This has to do with how the data is being passed from CSV list to the xlsx file. 
 
 Currently, I've written a function to convert the necessary data elements from string to number using:
-'''racket
+```racket
   (define l '())
   (for ([i SM_tail])
 
@@ -107,11 +107,11 @@ Currently, I've written a function to convert the necessary data elements from s
     (define temp (append l combined))
     (displayln temp)
     )
-'''
+```
 
 This function produces a list where the first element is a string corresponding to the date while the rest of the elements are integers corresponding to the opening value, highest value, lowest value, closing value, and volume traded.
 
-'''racket
+```racket
     (24-Mar-17 820.08 821.93 808.89 814.43 1981006)
     (23-Mar-17 821.0 822.57 812.26 817.58 3487056)
     (22-Mar-17 831.91 835.55 827.18 829.59 1401465)
@@ -138,7 +138,7 @@ This function produces a list where the first element is a string corresponding 
     (21-Feb-17 828.66 833.45 828.35 831.66 1262337)
     (17-Feb-17 823.02 828.07 821.66 828.07 1611039)
     (16-Feb-17 819.93 824.4 818.98 824.16 1287626)
-'''
+```
 
 However, I am unable to copy the list which has the correct data formats into the xlsx file because the loop is scoped in the for loop. It should definitely be doable because there is a procedure (set!) which assigns a new value to an existing variable. I've tried setting temp to l, which is scoped outside of the for loop. The current thinking right now is to use a series of accumulate with lambdas OR a set of nested for loops to work around this problem.
 
