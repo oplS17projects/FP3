@@ -67,8 +67,10 @@ The display and show procedures will print the content of the word as follow
 
 
 
-![alt tag](https://github.com/Sokthai/OPL/blob/master/FP3/pic1.bmp)
-![alt tag](https://github.com/Sokthai/OPL/blob/master/FP3/pic2.bmp)
+
+
+![alt tag](https://github.com/Sokthai/FP3/pic1.bmp)
+![alt tag](https://github.com/Sokthai/FP3/pic2.bmp)
 
 
 
