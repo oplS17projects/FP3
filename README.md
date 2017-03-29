@@ -4,13 +4,13 @@ William Bobos
 
 # Introduction
 My project partner and I decided to create a game for our final project.
-One aspect we decided on on was sound. We are hoping to add sound effects
-to our game. I decided on the Rsound library.
+One aspect we decided on was sound. We are hoping to add sound effects
+to our game. I decided on the RSound library.
 
 
 # Installation
-Well installation was supposedly straightforward. To use the Rsound library,
-a simple line of code was needed:
+Well installation was supposedly straightforward. To use the RSound library,
+a simple line of code was required:
 
 ```racket
 #lang racket
@@ -21,7 +21,7 @@ a simple line of code was needed:
 The `(require rsound)` is all that's needed to utilize the library.
 
 This didn't work at all. It may be outdated.
-After millenia of searching, I found multiple solutions.
+After kiloyears of searching, I found multiple solutions.
 
 Virtually all of the solutions failed.
 
@@ -49,7 +49,7 @@ I started with simple goals:
 * import RSound
 * play a sound
 
-Once these goals were accomplished, I'd attempt to use RSounds' other
+Once these goals were accomplished, I'd attempt to use RSound's other
 functions into my code.
 
 ### Import RSound
@@ -59,7 +59,7 @@ There was only one remaining problem: no sound.
 
 ```(diagnose-sound-playing)```
 
-I used this code to diagnose what API my machine was using. To test for sound,
+I used this code to diagnose what sound API my machine was using. To test for sound,
 I used:
 
 ```(play ding)```
@@ -90,10 +90,10 @@ I used RSound's test sound to test for audio functionality:
 ```
 Many, many hours later, my initial goals were finally complete.
 
-I decided to try the I/O functions
+I decided to try the I/O functions.
 
 # Implementation
-I wanted to implement a function to read and play WAV data from my hard disk.
+I wanted to implement a function to read and play .WAV data from my hard disk.
 
 I converted a 2 minute MP3 file into WAV, and attempted to have RSound play it.
 
