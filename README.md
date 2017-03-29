@@ -18,17 +18,7 @@ The only reason I wanted to get this working is so we could somehow implement pa
 of people online, when a stock (for example Apple) starts moving up or down people on twitter
 start talking more about the stock on twitter and tag their thoughts using a $ (for example $APPL)
 
-I tried again Monday and on Tuesday night decided to give something else a try, I tried to get familiar with simple-xlsx. Maybe in my project I can integrate sending the user a snapshot of their portfolio. 
-
-This is when I came across the 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
+I tried again Monday and on Tuesday night decided to give something else a try, I tried to get familiar with simple-xlsx. Maybe in my project I can integrate sending the user a snapshot of their portfolio. Hopefully I can figure the twitter thing out because I wasted a lot of time trying to figure that out 
 
 ![test image](/testimage.bmp?raw=true "test image")
 
