@@ -1,44 +1,26 @@
-# FP3: Final Project Assignment 3: Exploration 2
-Due Sunday, March 26, 2017
+## Turtle Graphics
+My name: Henry Walker
 
-This assignment is the same as [FP1], except definitely choose a library that you expect to use for your full project.
+I explored the turtle graphics library. Since my partner and I will likely be making a 2048 type game, I figured I should check out a graphics library to guide our game. I basically set up the inital game board and created some squares inside the board
+This was done mostly through using turn and forward to make the blue squares and a function from the library to make the board. Managing the actual turtle was alot harder than I was expecting. The window refreshes very fast so its quite difficult to keep track of the turtles direction and current position. I am currently unsure of whether I will use this specific graphics library due to this problem. However, there might be a way to manage the refresh speed and I can continue experimenting with creating squares from a fixed point, which would make my move functions much more consistent.
 
-You will be in your team before you complete this assignment. You and your teammate(s) must coordinate to (1) both choose libraries relevant to your project, and (2) each choose a different library.
+```
+  (define coordinate-square
+      (list (set-origin)
+            (pen-up)
+            (go-to -5 25)
+            (pen-down)
+            (go-to -5 125)
+            (go-to -105 125)
+            (go-to -105 25)
+            (go-to -5 25)))
+```
 
-The report template is below, beginning with "Library Name Here."
+This is my favorite peice of code, it took me a really long time to get the specific coords to make the center square
+I liked this type of square alot cause theoretically I could just make a function to transform the points, but it ended up being alot more complicated than that so I went with the turn and forwards instead. It also had a little tail when it was created due to it creating a line from the origin point to the first point. This was very confusing at first because I would plot 4 points and find 5.
 
-## How to Prepare and Submit This Assignment
+![turtle image](/turtleboard.png?raw=true "turtle board")
 
-1. To start, [**fork** this repository][forking]. 
-1. Add your `.rkt` Racket source file(s) to the repository. 
-1. Add any images to the repository.
-1. Modify the `README.md` file and [**commit**][ref-commit] changes to complete your report.
-1. Ensure your changes (report in `md` file, added `rkt` file(s), and images) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Library Name Here
-My name: **put your real name here**
-
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. 
-
-You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
-
-![test image](/testimage.png?raw=true "test image")
-
-You must provide credit to the source for any borrowed images.
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
 <!-- Links -->
 [FP1]: https://github.com/oplS17projects/FP1
