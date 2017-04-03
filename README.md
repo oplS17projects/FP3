@@ -27,6 +27,44 @@ Remember that this report must include:
 * output from your code demonstrating what it produced
 * at least one diagram or figure showing your work
 
+I enjoyed the plotting library so I wanted to pick another that had to do with drawing or something to that nature. I picked turtles because it seems simple yet intuitive. I started off with the most basic function. Make the turtle draw a line 30 pixels long.
+```racket
+#lang racket
+
+(require graphics/turtles)
+(turtles)
+
+(draw 30)
+```
+Then I tried turning it.
+
+```racket
+(turn/radians (/ pi 2))
+(draw 100)
+```
+I then split the turtle into multiple parts
+```racket
+(split (turn/radians (/ pi 2)))
+(split (turn/radians (/ pi 2)))
+(split (turn/radians (/ pi 2)))
+
+(draw 10)
+```
+I noticed how the draw command affected all of the turtles so I kept calling the turn and draw commands in the REPL.
+
+So I made a function that could do that instead of doing repeated calls manually.
+```racket
+(define (fract n c)
+  (fract-iter n 0 c))
+(define (fract-iter length count mcount)
+  (if (> count mcount)
+      count
+      ((turn (random 360))
+       (draw (random length))
+       (fract-iter length (+ count 1) mcount))))
+```
+
+I enjoyed the symmetry of the pictures and decided that was enough.
 The narrative itself should be no longer than 350 words. 
 
 You need at least one image (output, diagrams). Images must be uploaded to your repository, and then displayed with markdown in this file; like this:
